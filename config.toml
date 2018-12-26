@@ -1,4 +1,4 @@
-baseurl = "http://humboldtux.github.io/sbcb-demo"
+baseurl = "https://hoop77.github.io/hello-code-blog"
 title = "hello {code} blog"
 canonifyurls = true
 paginate = 10

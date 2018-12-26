@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on hello {code} blog</title>
-    <link>http://humboldtux.github.io/sbcb-demo/categories/</link>
+    <link>https://hoop77.github.io/hello-code-blog/categories/</link>
     <description>Recent content in Categories on hello {code} blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
     
-	<atom:link href="http://humboldtux.github.io/sbcb-demo/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hoop77.github.io/hello-code-blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>http://humboldtux.github.io/sbcb-demo/categories/development/</link>
+      <link>https://hoop77.github.io/hello-code-blog/categories/development/</link>
       <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
       
-      <guid>http://humboldtux.github.io/sbcb-demo/categories/development/</guid>
+      <guid>https://hoop77.github.io/hello-code-blog/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://humboldtux.github.io/sbcb-demo/categories/golang/</link>
+      <link>https://hoop77.github.io/hello-code-blog/categories/golang/</link>
       <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
       
-      <guid>http://humboldtux.github.io/sbcb-demo/categories/golang/</guid>
+      <guid>https://hoop77.github.io/hello-code-blog/categories/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tutorials</title>
-      <link>http://humboldtux.github.io/sbcb-demo/categories/tutorials/</link>
+      <link>https://hoop77.github.io/hello-code-blog/categories/tutorials/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://humboldtux.github.io/sbcb-demo/categories/tutorials/</guid>
+      <guid>https://hoop77.github.io/hello-code-blog/categories/tutorials/</guid>
       <description></description>
     </item>
     
