@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on hello {code} blog</title>
+    <link>http://humboldtux.github.io/sbcb-demo/tags/</link>
+    <description>Recent content in Tags on hello {code} blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Code released under the Apache 2.0 license.</copyright>
+    <lastBuildDate>Sun, 28 Jan 2018 18:59:43 +0530</lastBuildDate>
+    
+	<atom:link href="http://humboldtux.github.io/sbcb-demo/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Development</title>
+      <link>http://humboldtux.github.io/sbcb-demo/tags/development/</link>
+      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
+      
+      <guid>http://humboldtux.github.io/sbcb-demo/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>http://humboldtux.github.io/sbcb-demo/tags/go/</link>
+      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
+      
+      <guid>http://humboldtux.github.io/sbcb-demo/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://humboldtux.github.io/sbcb-demo/tags/golang/</link>
+      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
+      
+      <guid>http://humboldtux.github.io/sbcb-demo/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://humboldtux.github.io/sbcb-demo/tags/hugo/</link>
+      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
+      
+      <guid>http://humboldtux.github.io/sbcb-demo/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Templates</title>
+      <link>http://humboldtux.github.io/sbcb-demo/tags/templates/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://humboldtux.github.io/sbcb-demo/tags/templates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Themes</title>
+      <link>http://humboldtux.github.io/sbcb-demo/tags/themes/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://humboldtux.github.io/sbcb-demo/tags/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>http://humboldtux.github.io/sbcb-demo/tags/tutorials/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://humboldtux.github.io/sbcb-demo/tags/tutorials/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

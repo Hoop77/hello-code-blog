@@ -1,3 +1,6 @@
 [submodule "theme/clean-blog"]
 	path = theme/clean-blog
 	url = https://github.com/UtkarshVerma/startbootstrap-clean-blog
+[submodule "themes/startbootstrap-clean-blog"]
+	path = themes/startbootstrap-clean-blog
+	url = https://github.com/UtkarshVerma/startbootstrap-clean-blog
