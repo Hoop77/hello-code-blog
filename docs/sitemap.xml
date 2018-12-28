@@ -3,115 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://hoop77.github.io/hello-code-blog/about/</loc>
-    <lastmod>2015-05-24T18:51:50+02:00</lastmod>
+    <loc>https://hellocodeblog.com/about/</loc>
   </url>
   
   <url>
-    <loc>https://hoop77.github.io/hello-code-blog/contact/</loc>
+    <loc>https://hellocodeblog.com/contact/</loc>
     <lastmod>2015-05-24T18:52:04+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hoop77.github.io/hello-code-blog/post/hugoisforlovers/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/post/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/post/goisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/post/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/categories/</loc>
+    <loc>https://hellocodeblog.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/development/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
+    <loc>https://hellocodeblog.com/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hoop77.github.io/hello-code-blog/categories/development/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/go/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/golang/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/categories/golang/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/hugo/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/post/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/</loc>
-    <lastmod>2018-01-28T18:59:43+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/tags/tutorials/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/categories/tutorials/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hoop77.github.io/hello-code-blog/</loc>
-    <lastmod>2015-05-24T18:51:50+02:00</lastmod>
+    <loc>https://hellocodeblog.com/</loc>
+    <lastmod>2015-05-24T18:52:04+02:00</lastmod>
     <priority>0</priority>
   </url>
   

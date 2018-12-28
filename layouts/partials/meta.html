@@ -1,0 +1,5 @@
+{{ if .Site.Params.ShowReadTime }}
+  <p>A {{ .ReadingTime }} minute read</p>
+{{ end }}
+<p class="date">{{ dateFormat (.Site.Params.DateForm | default "Mon, Jan 2, 2006") .Date }}</p>
+<p class="tags">{{ partial "post-tags.html" . }}</p>

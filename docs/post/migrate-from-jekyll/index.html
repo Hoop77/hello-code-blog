@@ -2,12 +2,11 @@
 <html lang="en-us">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A tutorial on migrating from Jekyll to Hugo.">
-    <meta name="author" content="Benoît Benedetti">
+    <meta name="author" content="Philipp Badenhoop">
     <meta name="keywords" content="">
 
 
@@ -16,13 +15,14 @@
     
 
     
-    <link href="https://hoop77.github.io/hello-code-blog/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://hellocodeblog.com/css/bootstrap.min.css" rel="stylesheet">
 
     
-    <link href="https://hoop77.github.io/hello-code-blog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="https://hellocodeblog.com/css/hello-code-blog.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900" rel="stylesheet"> 
 
     
     
@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://hoop77.github.io/hello-code-blog">hello {code} blog</a>
+                <a class="navbar-brand" href="https://hellocodeblog.com">hello {code} blog</a>
             </div>
 
                        
@@ -51,19 +51,19 @@
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/">home</a>
+                        <a href="https://hellocodeblog.com/">Home</a>
                     </li>
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/about/">About</a>
+                        <a href="https://hellocodeblog.com/post/">Archive</a>
                     </li>
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/post/">Archives</a>
+                        <a href="https://hellocodeblog.com/about/">About</a>
                     </li>
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/contact/">Contact</a>
+                        <a href="https://hellocodeblog.com/contact/">Contact</a>
                     </li>
                     
                   </ul>
@@ -77,24 +77,32 @@
 
     
     
-    <header class="intro-header" style="background-image: url('https://hoop77.github.io/hello-code-blog/img/post-bg.jpg')">
+    <header class="intro-header">
     
       <div class="container">
         <div class="row">
            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
              <div class="post-heading">
-               <h1>Migrating from Jekyll</h1>
-               <h2 class="subheading">A tutorial on migrating from Jekyll to Hugo.</h2>
-               <span class="meta">
-                 
-Posted by <a href="#">Benoît Benedetti</a> on Mon, Mar 10, 2014
-<br />
-In 
-
-<br />
-Tags <a href="https://hoop77.github.io/hello-code-blog/tags/tutorials">tutorials</a>
-
-               </span>
+                <h1>Migrating from Jekyll</h1>
+                <div class="subheading syntax-color-comment">
+                  A tutorial on migrating from Jekyll to Hugo.
+                </div>
+                <div class="meta">
+                  <span class="syntax-color-doc">
+  
+  /** <br />
+  &nbsp;* <span class="syntax-color-highlight">\author</span> Philipp Badenhoop
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\date</span> <span>Mon, Mar 10, 2014</span>
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\categories</span> <span>
+</span>
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\tags</span> <span><a href="https://hellocodeblog.com/tags/tutorials" class="syntax-color-doc">tutorials</a></span>
+  <br />
+  &nbsp;*/
+</span>
+                </div>
              </div>
            </div>
         </div>
@@ -130,7 +138,7 @@ With Jekyll, something that looked like</p>
 
 <h1 id="create-your-hugo-configuration-file">Create your Hugo configuration file</h1>
 
-<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="https://hoop77.github.io/hello-code-blog/overview/configuration/">Hugo configuration documentation</a> for details.</p>
+<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="https://hellocodeblog.com/overview/configuration/">Hugo configuration documentation</a> for details.</p>
 
 <h1 id="set-your-configuration-publish-folder-to-site">Set your configuration publish folder to <code>_site</code></h1>
 
@@ -156,13 +164,13 @@ git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
 
 <h1 id="convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</h1>
 
-<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="https://hoop77.github.io/hello-code-blog/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
+<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="https://hellocodeblog.com/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
 
 <p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/">heyitsalex.net</a> took me no more than a few hours.</p>
 
 <h1 id="convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</h1>
 
-<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="https://hoop77.github.io/hello-code-blog/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
+<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="https://hellocodeblog.com/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
 
 <h1 id="implementation">Implementation</h1>
 
@@ -291,7 +299,7 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
                   <ul class="list-inline text-center">
                     
                       <li>
-                        <a href="mailto:benoit.benedetti@gmail.com">
+                        <a href="mailto:philipp.badenhoop@hellocodeblog.com">
                           <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
@@ -302,7 +310,7 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
                     
                     
                     <li>
-                      <a href="https://twitter.com/humboldtux">
+                      <a href="https://twitter.com/PBadenhoop">
                         <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
                           <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -330,20 +338,20 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
                     
                     
                   </ul>
-                  <p class="copyright text-muted">Code released under the Apache 2.0 license.</p>
+                  <p class="copyright text-muted">Code released under the MIT license.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     
-    <script src="https://hoop77.github.io/hello-code-blog/js/jquery.min.js"></script>
+    <script src="https://hellocodeblog.com/js/jquery.min.js"></script>
 
     
-    <script src="https://hoop77.github.io/hello-code-blog/js/bootstrap.min.js"></script>
+    <script src="https://hellocodeblog.com/js/bootstrap.min.js"></script>
 
     
-    <script src="https://hoop77.github.io/hello-code-blog/js/clean-blog.js"></script>
+    <script src="https://hellocodeblog.com/js/clean-blog.js"></script>
 
     
 

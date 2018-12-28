@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on hello {code} blog</title>
-    <link>https://hoop77.github.io/hello-code-blog/tags/hugo/</link>
+    <link>https://hellocodeblog.com/tags/hugo/</link>
     <description>Recent content in Hugo on hello {code} blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Code released under the Apache 2.0 license.</copyright>
+    <copyright>Code released under the MIT license.</copyright>
     <lastBuildDate>Sun, 28 Jan 2018 18:59:43 +0530</lastBuildDate>
     
-	<atom:link href="https://hoop77.github.io/hello-code-blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hellocodeblog.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://hoop77.github.io/hello-code-blog/post/hugoisforlovers/</link>
+      <link>https://hellocodeblog.com/post/hugoisforlovers/</link>
       <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
       
-      <guid>https://hoop77.github.io/hello-code-blog/post/hugoisforlovers/</guid>
+      <guid>https://hellocodeblog.com/post/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo

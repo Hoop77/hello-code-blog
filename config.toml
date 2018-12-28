@@ -4,11 +4,11 @@ canonifyurls = true
 paginate = 10
 theme = "startbootstrap-clean-blog"
 languageCode = "en-us"
-copyright = "Code released under the MIT license."
+copyright = "© 2018 by Philipp Badenhoop. All Rights Reserved."
 publishDir = "docs"
 
 [author]
-    name = "Philipp Badenhoop"
+  name = "Philipp Badenhoop"
 
 [params]
   DateForm = "Mon, Jan 2, 2006"
@@ -17,23 +17,24 @@ publishDir = "docs"
   email = "philipp.badenhoop@hellocodeblog.com"
   Ganalytics = "XX-00000000-0"
   # This will load all the CSS defined in the list
-  # customCSS = ["<absolute path to CSS>", "/static/css/test.css", "<or just load it off the internet>"]
+  # customCSS = ["hello-code-blog.css"]
 
 [[params.social]]
-    title = "twitter"
-    url = "https://twitter.com/PBadenhoop"
+  title = "twitter"
+  url = "https://twitter.com/PBadenhoop"
 [[params.social]]
-    title = "github"
-    url = "https://github.com/humboldtux"
-[[params.social]]
-    title = "facebook"
-    url = "https://www.facebook.com/FACEBOOKHANDLE"
+  title = "github"
+  url = "https://github.com/Hoop77"
 
 [[menu.main]]
   name = "Home"
   url = "/"
   weight = -200
 [[menu.main]]
-  name = "Archives"
+  name = "Archive"
   url = "/post/"
   weight = -190
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

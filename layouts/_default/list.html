@@ -1,0 +1,33 @@
+{{ partial "header.html" . }}
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background: #212121">
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+           <div class="site-heading">
+             <h1>
+              <span class="syntax-color-symbol">$</span> 
+              <span class="syntax-color-default">ls</span>
+              <span class="syntax-color-highlight">{{ .Title }}/</span>
+            </h1>
+           </div>
+         </div>
+       </div>
+     </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-centered">
+          <p>{{ partial "all-tags.html" . }}</p>
+          {{ range .Paginator.Pages }}
+              {{ .Render "archive" }}
+          {{ end }}
+          {{ template "_internal/pagination.html" . }}
+        </div>
+      </div>
+    </div>
+
+{{ partial "footer.html" . }}

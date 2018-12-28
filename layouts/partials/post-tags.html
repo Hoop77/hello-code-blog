@@ -1,0 +1,7 @@
+{{ range $index, $tag := .Params.tags }}
+    {{- if eq $index 0 -}}
+        <a href="/tags/{{ urlize . }}" class="tag">{{ . }}</a>
+    {{- else -}}
+        &nbsp<a href="/tags/{{ urlize . }}" class="tag">{{ . }}</a>
+    {{- end -}}
+{{ end }}

@@ -2,12 +2,11 @@
 <html lang="en-us">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A quick read on how to get started with Hugo.">
-    <meta name="author" content="Benoît Benedetti">
+    <meta name="author" content="Philipp Badenhoop">
     <meta name="keywords" content="">
 
 
@@ -16,13 +15,14 @@
     
 
     
-    <link href="https://hoop77.github.io/hello-code-blog/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://hellocodeblog.com/css/bootstrap.min.css" rel="stylesheet">
 
     
-    <link href="https://hoop77.github.io/hello-code-blog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="https://hellocodeblog.com/css/hello-code-blog.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900" rel="stylesheet"> 
 
     
     
@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://hoop77.github.io/hello-code-blog">hello {code} blog</a>
+                <a class="navbar-brand" href="https://hellocodeblog.com">hello {code} blog</a>
             </div>
 
                        
@@ -51,19 +51,19 @@
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/">home</a>
+                        <a href="https://hellocodeblog.com/">Home</a>
                     </li>
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/about/">About</a>
+                        <a href="https://hellocodeblog.com/post/">Archive</a>
                     </li>
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/post/">Archives</a>
+                        <a href="https://hellocodeblog.com/about/">About</a>
                     </li>
                     
                     <li>
-                        <a href="https://hoop77.github.io/hello-code-blog/contact/">Contact</a>
+                        <a href="https://hellocodeblog.com/contact/">Contact</a>
                     </li>
                     
                   </ul>
@@ -77,24 +77,32 @@
 
     
     
-    <header class="intro-header" style="background-image: url('https://hoop77.github.io/hello-code-blog/img/post-bg.jpg')">
+    <header class="intro-header">
     
       <div class="container">
         <div class="row">
            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
              <div class="post-heading">
-               <h1>Getting Started with Hugo</h1>
-               <h2 class="subheading">A quick read on how to get started with Hugo.</h2>
-               <span class="meta">
-                 
-Posted by <a href="#">Benoît Benedetti</a> on Sun, Jan 28, 2018
-<br />
-In <a href="https://hoop77.github.io/hello-code-blog/categories/development">Development</a>, <a href="https://hoop77.github.io/hello-code-blog/categories/golang">Golang</a>
-
-<br />
-Tags <a href="https://hoop77.github.io/hello-code-blog/tags/golang">golang</a>, <a href="https://hoop77.github.io/hello-code-blog/tags/go">go</a>, <a href="https://hoop77.github.io/hello-code-blog/tags/hugo">hugo</a>, <a href="https://hoop77.github.io/hello-code-blog/tags/development">development</a>
-
-               </span>
+                <h1>Getting Started with Hugo</h1>
+                <div class="subheading syntax-color-comment">
+                  A quick read on how to get started with Hugo.
+                </div>
+                <div class="meta">
+                  <span class="syntax-color-doc">
+  
+  /** <br />
+  &nbsp;* <span class="syntax-color-highlight">\author</span> Philipp Badenhoop
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\date</span> <span>Sun, Jan 28, 2018</span>
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\categories</span> <span><a href="https://hellocodeblog.com/categories/development" class="syntax-color-doc">Development</a>, <a href="https://hellocodeblog.com/categories/golang" class="syntax-color-doc">Golang</a>
+</span>
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\tags</span> <span><a href="https://hellocodeblog.com/tags/golang" class="syntax-color-doc">golang</a>, <a href="https://hellocodeblog.com/tags/go" class="syntax-color-doc">go</a>, <a href="https://hellocodeblog.com/tags/hugo" class="syntax-color-doc">hugo</a>, <a href="https://hellocodeblog.com/tags/development" class="syntax-color-doc">development</a></span>
+  <br />
+  &nbsp;*/
+</span>
+                </div>
              </div>
            </div>
         </div>
@@ -115,7 +123,7 @@ appropriate version for your os and architecture.</p>
 
 <p>Save it somewhere specific as we will be using it in the next step.</p>
 
-<p>More complete instructions are available at <a href="https://hoop77.github.io/hello-code-blog/overview/installing/">installing hugo</a></p>
+<p>More complete instructions are available at <a href="https://hellocodeblog.com/overview/installing/">installing hugo</a></p>
 
 <h1 id="step-2-build-the-docs">Step 2. Build the Docs</h1>
 
@@ -200,7 +208,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
                   <ul class="list-inline text-center">
                     
                       <li>
-                        <a href="mailto:benoit.benedetti@gmail.com">
+                        <a href="mailto:philipp.badenhoop@hellocodeblog.com">
                           <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
@@ -211,7 +219,7 @@ Having nearly instant feedback enables you to have your creativity flow without 
                     
                     
                     <li>
-                      <a href="https://twitter.com/humboldtux">
+                      <a href="https://twitter.com/PBadenhoop">
                         <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
                           <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -239,20 +247,20 @@ Having nearly instant feedback enables you to have your creativity flow without 
                     
                     
                   </ul>
-                  <p class="copyright text-muted">Code released under the Apache 2.0 license.</p>
+                  <p class="copyright text-muted">Code released under the MIT license.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     
-    <script src="https://hoop77.github.io/hello-code-blog/js/jquery.min.js"></script>
+    <script src="https://hellocodeblog.com/js/jquery.min.js"></script>
 
     
-    <script src="https://hoop77.github.io/hello-code-blog/js/bootstrap.min.js"></script>
+    <script src="https://hellocodeblog.com/js/bootstrap.min.js"></script>
 
     
-    <script src="https://hoop77.github.io/hello-code-blog/js/clean-blog.js"></script>
+    <script src="https://hellocodeblog.com/js/clean-blog.js"></script>
 
     
 

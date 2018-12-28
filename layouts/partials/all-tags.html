@@ -1,0 +1,9 @@
+{{ $index := 0 }}
+{{ range $tag, $data := .Site.Taxonomies.tags }}
+  {{- if eq $index 0 -}}
+    <a href="/tags/{{ urlize $tag }}" class="tag">{{ $tag }}</a>
+  {{- else -}}
+    &nbsp<a href="/tags/{{ urlize $tag }}" class="tag">{{ $tag }}</a>
+  {{- end -}}
+  {{ $index := add $index 1 }}
+{{ end }}

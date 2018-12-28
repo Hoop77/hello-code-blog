@@ -2,78 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on hello {code} blog</title>
-    <link>https://hoop77.github.io/hello-code-blog/tags/</link>
+    <link>https://hellocodeblog.com/tags/</link>
     <description>Recent content in Tags on hello {code} blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Code released under the Apache 2.0 license.</copyright>
-    <lastBuildDate>Sun, 28 Jan 2018 18:59:43 +0530</lastBuildDate>
+    <copyright>© 2018 by Philipp Badenhoop. All Rights Reserved.</copyright>
     
-	<atom:link href="https://hoop77.github.io/hello-code-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hellocodeblog.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Development</title>
-      <link>https://hoop77.github.io/hello-code-blog/tags/development/</link>
-      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
-      
-      <guid>https://hoop77.github.io/hello-code-blog/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>https://hoop77.github.io/hello-code-blog/tags/go/</link>
-      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
-      
-      <guid>https://hoop77.github.io/hello-code-blog/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://hoop77.github.io/hello-code-blog/tags/golang/</link>
-      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
-      
-      <guid>https://hoop77.github.io/hello-code-blog/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://hoop77.github.io/hello-code-blog/tags/hugo/</link>
-      <pubDate>Sun, 28 Jan 2018 18:59:43 +0530</pubDate>
-      
-      <guid>https://hoop77.github.io/hello-code-blog/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Templates</title>
-      <link>https://hoop77.github.io/hello-code-blog/tags/templates/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoop77.github.io/hello-code-blog/tags/templates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Themes</title>
-      <link>https://hoop77.github.io/hello-code-blog/tags/themes/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoop77.github.io/hello-code-blog/tags/themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorials</title>
-      <link>https://hoop77.github.io/hello-code-blog/tags/tutorials/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoop77.github.io/hello-code-blog/tags/tutorials/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>
