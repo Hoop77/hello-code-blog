@@ -1,0 +1,42 @@
+{{ partial "header.html" .}}
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background: #212121">
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+           <div class="site-heading" style="text-align: left;">
+             <h1 style="font-family: 'Source Code Pro', monospace; font-size: 48pt">
+             <!-- green: #98C379, purple: #9E78DD,  -->
+              <span style="color: white">$ hello</span> 
+              <span style="color: #98C379">{</span><!--
+              --><span style="color: #9E78DD">code</span><!--
+              --><span style="color: #98C379">}</span> 
+              <span style="color: white">blog</span>
+            </h1>
+            {{ with .Site.Params.Description }}<span class="subheading" style="color: #868686; margin-top: 50px; font-family: 'Source Code Pro', monospace; font-size: 24pt">{{ . }}</span>{{ end }}
+           </div>
+         </div>
+       </div>
+     </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          {{ $posts := or .Site.Params.PostSummariesFrontPage 4 }}
+          {{ range first $posts (where .Data.Pages "Type" "post") }}
+              {{ .Render "summary"}}
+          {{ end }}
+          <!-- Pager -->
+          <ul class="pager">
+            <li class="next">
+              <a href="{{ .Site.BaseURL }}/post/">Older Posts &rarr;</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+{{ partial "footer.html" .}}
