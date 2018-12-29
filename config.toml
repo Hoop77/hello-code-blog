@@ -7,6 +7,7 @@ languageCode = "en-us"
 copyright = "© 2018 by Philipp Badenhoop. All Rights Reserved."
 publishDir = "docs"
 pygmentsStyle = "paraiso-dark"
+googleAnalytics = "UA-131477483-1"
 
 [author]
   name = "Philipp Badenhoop"
@@ -16,7 +17,6 @@ pygmentsStyle = "paraiso-dark"
   Description = "// The computer science blog."
   Author = "Philipp Badenhoop"
   email = "philipp.badenhoop@hellocodeblog.com"
-  googleAnalytics = "UA-131477483-1"
   # This will load all the CSS defined in the list
   # customCSS = ["hello-code-blog.css"]
 
