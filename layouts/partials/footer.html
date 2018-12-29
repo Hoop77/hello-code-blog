@@ -28,6 +28,7 @@
                     {{ end }}
                     {{ end }}
                   </ul>
+                  <p><a href="#" id="changeCookiePreferences" class="text-muted">Cookie Preferences</a></p>
                   <p class="copyright text-muted">{{ .Site.Copyright }}</p>
                 </div>
             </div>
@@ -39,6 +40,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ .Site.BaseURL }}/js/bootstrap.min.js"></script>
+
+    <!-- MathJax for math equations -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ .Site.BaseURL }}/js/clean-blog.js"></script>

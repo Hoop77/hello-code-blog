@@ -6,6 +6,7 @@ theme = "startbootstrap-clean-blog"
 languageCode = "en-us"
 copyright = "© 2018 by Philipp Badenhoop. All Rights Reserved."
 publishDir = "docs"
+pygmentsStyle = "paraiso-dark"
 
 [author]
   name = "Philipp Badenhoop"
@@ -15,7 +16,7 @@ publishDir = "docs"
   Description = "// The computer science blog."
   Author = "Philipp Badenhoop"
   email = "philipp.badenhoop@hellocodeblog.com"
-  Ganalytics = "XX-00000000-0"
+  googleAnalytics = "UA-131477483-1"
   # This will load all the CSS defined in the list
   # customCSS = ["hello-code-blog.css"]
 

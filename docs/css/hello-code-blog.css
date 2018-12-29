@@ -15,10 +15,6 @@ p {
     margin: 30px 0
 }
 
-p a {
-    text-decoration: underline
-}
-
 h1,
 h2,
 h3,
@@ -151,13 +147,6 @@ hr.small {
     background-size: cover;
     -o-background-size: cover;
     margin-bottom: 50px;
-    text-align: center;
-}
-
-@media only screen and (min-width:768px) {
-    .intro-header {
-        text-align: left;
-    }
 }
 
 .intro-header .site-heading,
@@ -172,6 +161,7 @@ hr.small {
 .intro-header .page-heading h1 {
     font-family: 'Source Code Pro', monospace;
     font-weight: 900;
+    text-align: center;
 }
 
 @media only screen and (min-width:768px) {
@@ -201,12 +191,12 @@ hr.small {
     .intro-header .site-heading h1,
     .intro-header .page-heading h1 {
         font-size: 62px;
+        text-align: left;
     }
 }
 
 .intro-header .post-heading h1 {
     font-size: 35px;
-    text-align: center;
 }
 
 .intro-header .post-heading .subheading {
@@ -261,10 +251,6 @@ hr.small {
     margin-top: 0;
 }
 
-.post-preview>.post-meta>a {
-    text-decoration: none;
-}
-
 .post-preview>.post-meta p {
     margin: 10px 0;
 }
@@ -297,18 +283,15 @@ hr.small {
 }
 
 footer {
-    padding: 50px 0 65px
+    padding: 50px 0 65px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 0;
 }
 
 footer .list-inline {
     margin: 0;
     padding: 0
-}
-
-footer .copyright {
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 0
 }
 
 .floating-label-form-group {
@@ -457,7 +440,6 @@ body {
     font-size: 12px;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
-    text-decoration: none;
     max-width: 100%;
     margin-bottom: 5px;
 }
@@ -495,4 +477,23 @@ a.syntax-color-doc:hover {
 
 .text-centered {
     text-align: center;
+}
+
+figure.autosize > img {
+    width: 100%;
+    height: auto;
+}
+
+figure {
+    text-align: center;
+}
+
+figure > figcaption {
+    margin-top: 20px;
+}
+
+figure > figcaption > h4 {
+    font-family: Lora, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 400;
 }
