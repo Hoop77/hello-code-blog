@@ -10,6 +10,10 @@
     color: #404040;
 }
 
+*:focus {
+    outline: none;
+}
+
 p {
     line-height: 1.5;
     margin: 30px 0;
@@ -55,6 +59,7 @@ hr.small {
 
 .navbar-custom {
     position: absolute;
+    background: #f2f2f2;
     top: 0;
     left: 0;
     width: 100%;
@@ -66,21 +71,26 @@ hr.small {
     text-decoration: none;
 }
 
-.navbar-custom .navbar-brand {
-    font-weight: 900
+.navbar-custom a.navbar-brand {
+    font-weight: 900;
 }
 
-.navbar-custom .nav li a {
+.navbar-custom .navbar-toggler {
+    font-size: 24px;
+}
+
+.navbar-custom .navbar-nav li a {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 900;
-    letter-spacing: 1px
+    letter-spacing: 1px;
 }
 
 @media only screen and (min-width:768px) {
     .navbar-custom {
         background: 0 0;
-        border-bottom: 1px solid transparent
+        border-bottom: 1px solid transparent;
+        height: 56px;
     }
     .navbar-custom .navbar-brand {
         color: #fff;
@@ -90,17 +100,17 @@ hr.small {
     .navbar-custom .navbar-brand:focus {
         color: rgba(255, 255, 255, .8)
     }
-    .navbar-custom .nav li a {
+    .navbar-custom .navbar-nav li a {
         color: #fff;
-        padding: 20px
+        margin: 0 5px;
     }
-    .navbar-custom .nav li a:hover,
-    .navbar-custom .nav li a:focus {
+    .navbar-custom .navbar-nav li a:hover,
+    .navbar-custom .navbar-nav li a:focus {
         color: rgba(255, 255, 255, .8)
     }
 }
 
-@media only screen and (min-width:1170px) {
+@media only screen and (min-width:768px) {
     .navbar-custom {
         -webkit-transition: background-color .3s;
         -moz-transition: background-color .3s;
@@ -129,11 +139,11 @@ hr.small {
     .navbar-custom.is-fixed .navbar-brand:focus {
         color: #0085a1
     }
-    .navbar-custom.is-fixed .nav li a {
+    .navbar-custom.is-fixed .navbar-nav li a {
         color: #404040
     }
-    .navbar-custom.is-fixed .nav li a:hover,
-    .navbar-custom.is-fixed .nav li a:focus {
+    .navbar-custom.is-fixed .navbar-nav li a:hover,
+    .navbar-custom.is-fixed .navbar-nav li a:focus {
         color: #0085a1
     }
     .navbar-custom.is-visible {
@@ -195,12 +205,21 @@ hr.small {
     margin: 50px 0 0;
     font-family: 'Source Code Pro', monospace;
     font-weight: 400;
+    text-align: center;
 }
 
 @media only screen and (min-width:768px) {
     .intro-header .site-heading h1,
     .intro-header .page-heading h1 {
-        font-size: 62px;
+        font-size: 64px;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .intro-header .site-heading h1,
+    .intro-header .page-heading h1,
+    .intro-header .site-heading .subheading,
+    .intro-header .page-heading .subheading {
         text-align: left;
     }
 }
@@ -404,14 +423,15 @@ form .row:first-child .floating-label-form-group {
     letter-spacing: 1px;
     padding: 15px 25px;
     background-color: #fff;
-    border-radius: 0
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .pager li>a:hover,
 .pager li>a:focus {
     color: #fff;
     background-color: #0085a1;
-    border: 1px solid #0085a1
+    border: 1px solid #0085a1;
 }
 
 .pager .disabled>a,
@@ -490,6 +510,10 @@ a.tag {
 
 .syntax-color-doc {
     color: #404040;
+}
+
+.syntax-color-error {
+    color: #F07178;
 }
 
 a.syntax-color-doc:hover {
