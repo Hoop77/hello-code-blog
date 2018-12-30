@@ -25,7 +25,7 @@ googleAnalytics = "UA-131477483-1"
   url = "https://twitter.com/PBadenhoop"
 [[params.social]]
   title = "github"
-  url = "https://github.com/Hoop77"
+  url = "https://github.com/Badenhoop"
 
 [[menu.main]]
   name = "Home"
