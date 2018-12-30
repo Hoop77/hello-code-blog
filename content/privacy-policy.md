@@ -1,5 +1,5 @@
 +++
-date = "2015-05-24T18:52:04+02:00"
+date = "2018-12-29T18:52:04+02:00"
 title = "Privacy Policy"
 type = "privacy-policy"
 +++

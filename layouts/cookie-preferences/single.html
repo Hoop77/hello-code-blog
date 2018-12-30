@@ -1,10 +1,5 @@
 {{ partial "header.html" . }}
 
-    <!-- Ignore cookie consent on this page. -->
-    <script>
-        IGNORE_COOKIE_CONSENT = true;
-    </script>
-
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header">
@@ -13,8 +8,9 @@
                 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                     <div class="page-heading">
                         <h1>
-                            <span class="syntax-color-symbol">§</span> 
-                            <span class="syntax-color-highlight">{{ .Title }}</span>
+                            <span class="syntax-color-symbol">[</span><!--
+                            --><span class="syntax-color-highlight">{{ .Title }}</span><!--
+                            --><span class="syntax-color-symbol">]</span>
                         </h1>
                     </div>
                 </div>
@@ -26,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                {{ .Content }}
+              {{ .Content }}
             </div>
         </div>
     </div>

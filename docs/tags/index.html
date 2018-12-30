@@ -36,45 +36,35 @@
 <body>
 
     
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="https://hellocodeblog.com">hello {code} blog</a>
-            </div>
-
-                       
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+    <nav class="navbar navbar-expand-md navbar-custom">
+        <a class="navbar-brand" href="https://hellocodeblog.com">hello {code} blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fa fa-bars"></i></span>
+        </button>
+                   
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
                     
-                    <li>
-                        <a href="https://hellocodeblog.com/">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/">Home</a>
                     </li>
                     
-                    <li>
-                        <a href="https://hellocodeblog.com/post/">Archive</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/post/">Archive</a>
                     </li>
                     
-                    <li>
-                        <a href="https://hellocodeblog.com/about/">About</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/about/">About</a>
                     </li>
                     
-                    <li>
-                        <a href="https://hellocodeblog.com/contact/">Contact</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/contact/">Contact</a>
                     </li>
                     
                   </ul>
             </div>
            
 
-        </div>
-        
     </nav>
 
 
@@ -82,7 +72,7 @@
     <header class="intro-header" style="background-image: url('https://hellocodeblog.com/img/home-bg.jpg')">
      <div class="container">
        <div class="row">
-         <div class="col-md-10 offset-md-1">
+         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
            <div class="site-heading">
              <h1>Tags</h1>
              <hr class="small">
@@ -96,7 +86,7 @@
     
     <div class="container">
       <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <ul>
             
             
@@ -113,7 +103,7 @@
                 <div class="col-md-10 offset-md-1">
                   <ul class="list-inline text-center">
                     
-                      <li>
+                      <li class="list-inline-item">
                         <a href="mailto:philipp.badenhoop@hellocodeblog.com">
                           <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
@@ -124,7 +114,7 @@
                     
                     
                     
-                    <li>
+                    <li class="list-inline-item">
                       <a href="https://twitter.com/PBadenhoop">
                         <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
@@ -133,7 +123,7 @@
                       </a>
                     </li>
                     
-                    <li>
+                    <li class="list-inline-item">
                       <a href="https://github.com/Hoop77">
                         <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
@@ -144,7 +134,7 @@
                     
                     
                   </ul>
-                  <p><a href="#" id="changeCookiePreferences" class="text-muted">Cookie Preferences</a></p>
+                  <p><a href="https://hellocodeblog.com/cookie-preferences" id="changeCookiePreferences" class="text-muted">Cookie Preferences</a></p>
                   <p class="copyright text-muted">© 2018 by Philipp Badenhoop. All Rights Reserved.</p>
                 </div>
             </div>
@@ -161,22 +151,14 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
     
-    <script src="https://hellocodeblog.com/js/clean-blog.js"></script>
+    <script src="https://hellocodeblog.com/js/hello-code-blog.js"></script>
 
     
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-131477483-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
+    <script>
+      
+      COOKIE_CONSENT = '\x3cdiv class=\x22cookie-consent outer d-flex justify-content-center align-items-center\x22\x3e\n  \x3cdiv class=\x22inner\x22\x3e\n    \x3ch1\x3eWe use cookies\x3c\/h1\x3e\n    \x3cp\x3eWe use cookies to analyze our website traffic. By browsing our website, you consent to our use of cookies. For more informations, please read our \x3ca href=\x22https:\/\/hellocodeblog.com\/privacy-policy\x22 target=\x22_blank\x22\x3eprivacy policy\x3c\/a\x3e\x3c\/p\x3e\n    \x3cul class=\x22list-inline\x22\x3e\n      \x3cli class=\x22list-inline-item\x22\x3e\x3cbutton class=\x22btn btn-warning\x22 onclick=\x22enableCookieUsage();hideCookieConsent();\x22\x3eAccept\x3c\/button\x3e\x3c\/li\x3e\n      \x3cli class=\x22list-inline-item\x22\x3e\x3cbutton class=\x22btn btn-secondary\x22 onclick=\x22disableCookieUsage();hideCookieConsent();\x22\x3eCancel\x3c\/button\x3e\x3c\/li\x3e\n    \x3c\/ul\x3e\n  \x3c\/div\x3e\n\x3c\/div\x3e'
+    </script>
+    <script src="https://hellocodeblog.com/js/cookie.js"></script>
 
 </body>
 

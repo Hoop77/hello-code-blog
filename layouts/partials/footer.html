@@ -28,7 +28,7 @@
                     {{ end }}
                     {{ end }}
                   </ul>
-                  <p><a href="#" id="changeCookiePreferences" class="text-muted">Cookie Preferences</a></p>
+                  <p><a href="{{ .Site.BaseURL }}/cookie-preferences" id="changeCookiePreferences" class="text-muted">Cookie Preferences</a></p>
                   <p class="copyright text-muted">{{ .Site.Copyright }}</p>
                 </div>
             </div>
@@ -45,9 +45,14 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ .Site.BaseURL }}/js/clean-blog.js"></script>
+    <script src="{{ .Site.BaseURL }}/js/hello-code-blog.js"></script>
 
-    {{ template "_internal/google_analytics.html" . }}
+    <!-- Cookies -->
+    <script>
+      // Generate the html of the cookie consent template inside a global variable.
+      COOKIE_CONSENT = '{{ partial "cookie-consent.html" . }}'
+    </script>
+    <script src="{{ .Site.BaseURL }}/js/cookie.js"></script>
 
 </body>
 
