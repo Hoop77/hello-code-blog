@@ -7,30 +7,12 @@
          <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
            <div class="site-heading">
               <h1>
-                <span class="syntax-color-symbol">$</span> 
-                <span class="syntax-color-error">FATAL ERROR</span> 
+                <span class="syntax-color-error">404 NOT FOUND</span> 
             </h1>
-            {{ with .Site.Params.Description }}<span class="subheading syntax-color-comment">{{ . }}</span>{{ end }}
            </div>
          </div>
        </div>
      </div>
     </header>
-
-    <!-- Main Content -->
-    <div class="container">
-      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-        <div class="post-preview">
-          <p class="post-meta"><a href="{{ .Site.BaseURL }}">Index</a>
-            <br />
-          </p>
-        </div>
-        <div class="post-preview">
-          <p class="post-meta"><a href="{{ .Site.BaseURL }}/post/">Archives</a>
-            <br />
-          </p>
-        </div>
-      </div>
-    </div>
 
 {{ partial "footer.html" .}}

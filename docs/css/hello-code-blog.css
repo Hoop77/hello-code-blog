@@ -411,7 +411,7 @@ form .row:first-child .floating-label-form-group {
 }
 
 .pager {
-    margin: 20px 0 0
+    margin: 20px 0;
 }
 
 .pager a {
@@ -642,4 +642,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+pre {
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
 }

@@ -19,7 +19,7 @@ And here's some code.
 {{< highlight python "linenos=inline" >}}
 class HelloCodeBlog:
     def __init__(self):
-        self.running = True
+        self.running = True 
 
 if __name__ == "__main__":
     print('Hello!')
