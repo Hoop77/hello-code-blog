@@ -162,13 +162,13 @@ link_libraries(asionet)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">10</span>                             <span style="color:#815ba4">const</span> boost<span style="color:#5bc4bf">::</span>asio<span style="color:#5bc4bf">::</span>ip<span style="color:#5bc4bf">::</span>udp<span style="color:#5bc4bf">::</span>endpoint <span style="color:#5bc4bf">&amp;</span> senderEndpoint) 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">11</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">12</span>    <span style="color:#815ba4">if</span> (error) <span style="color:#815ba4">return</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">13</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;received: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#5bc4bf">*</span>message <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#ef6155">
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">14</span><span style="color:#ef6155"></span><span style="color:#48b685">              &lt;&lt; &#34;</span>host: <span style="color:#48b685">&#34; &lt;&lt; senderEndpoint.address().to_string() &lt;&lt; &#34;</span><span style="color:#ef6155">\</span>n<span style="color:#48b685">&#34; </span><span style="color:#ef6155">
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">15</span><span style="color:#ef6155"></span><span style="color:#48b685">              &lt;&lt; &#34;</span>port: <span style="color:#48b685">&#34; &lt;&lt; senderEndpoint.port() &lt;&lt; &#34;</span><span style="color:#ef6155">\</span>n<span style="color:#48b685">&#34;; </span><span style="color:#ef6155">
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">16</span><span style="color:#ef6155"></span><span style="color:#48b685">});</span><span style="color:#ef6155">
-</span></code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">13</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;received: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#5bc4bf">*</span>message <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">14</span>              <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;host: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> senderEndpoint.address().to_string() <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">15</span>              <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;port: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> senderEndpoint.port() <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>; 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">16</span>});
+</code></pre></div>
 
-<h2 id="sending-udp-string-messages-over-udp">Sending UDP string messages over UDP</h2>
+<h2 id="sending-string-messages-over-udp">Sending string messages over UDP</h2>
 
 <p>The following code sends a UDP message containing the string &ldquo;Hello World!&rdquo; to IP 127.0.0.1 port 4242 with operation timeout 10ms.</p>
 
