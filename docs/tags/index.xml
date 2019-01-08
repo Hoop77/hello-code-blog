@@ -7,9 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2018 by Philipp Badenhoop. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hellocodeblog.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Asionet</title>
+      <link>https://hellocodeblog.com/tags/asionet/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/asionet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boost</title>
+      <link>https://hellocodeblog.com/tags/boost/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/boost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://hellocodeblog.com/tags/c&#43;&#43;/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://hellocodeblog.com/tags/network/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/network/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

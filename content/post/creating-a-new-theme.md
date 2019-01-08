@@ -3,7 +3,6 @@ title: "Creating a New Theme"
 description: "A tutorial on how to create a Hugo theme."
 author:
   name: "Michael Henderson"
-  desc: " "
 date: 2014-09-28
 draft: true
 categories:

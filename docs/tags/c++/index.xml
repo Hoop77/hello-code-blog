@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on hello {code} blog</title>
+    <link>https://hellocodeblog.com/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on hello {code} blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2018 by Philipp Badenhoop. All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hellocodeblog.com/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Introduction to asionet</title>
+      <link>https://hellocodeblog.com/post/asionet/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/post/asionet/</guid>
+      <description>Introduction In case you&amp;rsquo;ve ever done some network programming in C++, you probably stumbled upon the quasi-standard boost::asio library. It uses asynchronous programming making it scalable but on the other side, it takes quite some time to learn how to use it correctly.
+asionet is built on top of boost::asio which makes it 100% compatible with it but easier to use at the same time. For example, managing timeouts and sending and receiving serialized messages is done with only a few lines of code.</description>
+    </item>
+    
+  </channel>
+</rss>
