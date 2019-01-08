@@ -1,6 +1,6 @@
 ---
 title: "An Introduction to asionet"
-description: "Asynchronous networking programming in C++ made easy."
+description: "Asynchronous network programming in C++ made easy."
 author:
   name: "Philipp Badenhoop"
 date: 2019-01-08
