@@ -3,4 +3,3 @@
 ## TODO
 
 - backpropagation tutorial
-- google analytics
