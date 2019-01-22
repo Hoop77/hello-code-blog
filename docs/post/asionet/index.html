@@ -221,30 +221,44 @@ Therefore, we could just use the nlohmann json library which is an amazing piece
 The call operator takes a PlayerState reference as input and expects the data reference to be assigned to the byte string that should be transmitted over the network.</p>
 
 <p>Since we can now send PlayerState objects, we cover the server side next.
-Therefore, we have to specialize the asionet::message::Decoder<PlayerState> struct to retrieve the PlayerState object from a received string of bytes.</p>
+Therefore, we have to specialize the asionet::message::Decoder<PlayerState> struct to retrieve the PlayerState object from a buffer object.</p>
 
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 1</span><span style="color:#815ba4">namespace</span> asionet { <span style="color:#815ba4">namespace</span> message {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 3</span><span style="color:#815ba4">template</span><span style="color:#5bc4bf">&lt;&gt;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 4</span><span style="color:#815ba4">struct</span> Decoder<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 5</span>{
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 6</span>    std<span style="color:#5bc4bf">::</span>shared_ptr<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span> <span style="color:#815ba4">operator</span>()(<span style="color:#815ba4">const</span> std<span style="color:#5bc4bf">::</span>string <span style="color:#5bc4bf">&amp;</span> data) <span style="color:#815ba4">const</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 7</span>    {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 8</span>         <span style="color:#815ba4">auto</span> j <span style="color:#5bc4bf">=</span> nlohmann<span style="color:#5bc4bf">::</span>json<span style="color:#5bc4bf">::</span>parse(data);
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 9</span>         <span style="color:#815ba4">return</span> std<span style="color:#5bc4bf">::</span>make_shared<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span>(
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">10</span>             j.at(<span style="color:#48b685">&#34;name&#34;</span>).get<span style="color:#5bc4bf">&lt;</span>std<span style="color:#5bc4bf">::</span>string<span style="color:#5bc4bf">&gt;</span>(),
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">11</span>             j.at(<span style="color:#48b685">&#34;xPos&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>(),
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">12</span>             j.at(<span style="color:#48b685">&#34;yPos&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>(),
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">13</span>             j.at(<span style="color:#48b685">&#34;health&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">14</span>         );
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">15</span>    }
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">16</span>};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">17</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">18</span>}}
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 6</span>    <span style="color:#815ba4">template</span><span style="color:#5bc4bf">&lt;</span><span style="color:#815ba4">typename</span> ConstBuffer<span style="color:#5bc4bf">&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 7</span>    std<span style="color:#5bc4bf">::</span>shared_ptr<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span> <span style="color:#815ba4">operator</span>()(<span style="color:#815ba4">const</span> ConstBuffer <span style="color:#5bc4bf">&amp;</span> buffer) <span style="color:#815ba4">const</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 8</span>    {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 9</span>         <span style="color:#815ba4">auto</span> j <span style="color:#5bc4bf">=</span> nlohmann<span style="color:#5bc4bf">::</span>json<span style="color:#5bc4bf">::</span>parse(buffer.begin(), buffer.end());
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">10</span>         <span style="color:#815ba4">return</span> std<span style="color:#5bc4bf">::</span>make_shared<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span>(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">11</span>             j.at(<span style="color:#48b685">&#34;name&#34;</span>).get<span style="color:#5bc4bf">&lt;</span>std<span style="color:#5bc4bf">::</span>string<span style="color:#5bc4bf">&gt;</span>(),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">12</span>             j.at(<span style="color:#48b685">&#34;xPos&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>(),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">13</span>             j.at(<span style="color:#48b685">&#34;yPos&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>(),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">14</span>             j.at(<span style="color:#48b685">&#34;health&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">15</span>         );
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">16</span>    }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">17</span>};
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">18</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">19</span>}}
 </code></pre></div>
 
-<p>Note that we have to return a std::shared_ptr<PlayerState> in this case.
-Finally, we can set up the UDP receiver as follows:</p>
+<p>Note that we have to define the call operator which takes a template argument and returns a shared_ptr of a PlayerState.
+So what exactly is a ConstBuffer?
+Since it&rsquo;s a template argument, a ConstBuffer is not an actual class but instead represents an abstract buffer interface.
+This interface provides four methods:</p>
+
+<ul>
+<li>a <strong>size()</strong> function, returning the number of bytes in the buffer</li>
+<li>a <strong>[]-operator</strong> returning a data byte as a char by index</li>
+<li>a <strong>begin()</strong> function to get an iterator to the beginning of the buffer</li>
+<li>a <strong>end()</strong> function to get an iterator to the end of the buffer</li>
+</ul>
+
+<p>By using this abstraction, asionet may internally use the most suitable buffer representation for a specific operation.</p>
+
+<p>Finally, we can set up the UDP receiver as follows:</p>
 
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">1</span>asionet<span style="color:#5bc4bf">::</span>DatagramReceiver<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span> receiver{context, <span style="color:#f99b15">4242</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">2</span>receiver.asyncReceive(<span style="color:#f99b15">1</span>s, [](<span style="color:#815ba4">const</span> <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> error, 
