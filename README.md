@@ -1,5 +1,3 @@
 # README
 
-## TODO
-
-- backpropagation tutorial
+Personal blog website using Hugo as a static CMS.
