@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Autonomous Driving on hello {code} blog</title>
+    <title>Autonomous Driving on The computer science blog.</title>
     <link>https://hellocodeblog.com/tags/autonomous-driving/</link>
-    <description>Recent content in Autonomous Driving on hello {code} blog</description>
+    <description>Recent content in Autonomous Driving on The computer science blog.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2019 by Philipp Badenhoop. All Rights Reserved.</copyright>
