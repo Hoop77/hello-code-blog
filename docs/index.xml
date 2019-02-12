@@ -32,6 +32,16 @@ Philipp Badenhoop</description>
     </item>
     
     <item>
+      <title>Autonomous Racing with Deep Learning</title>
+      <link>https://hellocodeblog.com/post/bachelor-thesis/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/post/bachelor-thesis/</guid>
+      <description>Today, I finally defended my bachelor thesis. It was a brilliant experience since many of my fellow students supported me by taking part at this event today. A big thanks to all of them!
+The topic of the thesis was &amp;ldquo;Autonomous Racing with Deep Learning&amp;rdquo;. In the work, I developed a new approach to autonomous racing which hasn&amp;rsquo;t been introduced in literature so far to my knowledge. Furthermore, I strongly focused on giving a formal but comprehensible introduction into deep learning which can be read completely standalone.</description>
+    </item>
+    
+    <item>
       <title>An Introduction to asionet</title>
       <link>https://hellocodeblog.com/post/asionet/</link>
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
