@@ -64,11 +64,11 @@ asionet::Worker worker{context};
 asionet::DatagramReceiver<std::string> receiver{context, 4242};
 // Receive a string message with timeout 1 second.
 receiver.asyncReceive(1s, [](const asionet::error::Error & error, 
-                             const std::shared_ptr<std::string> & message,
+                             std::string & message,
                              const boost::asio::ip::udp::endpoint & senderEndpoint) 
 {
     if (error) return;
-    std::cout << "received: " << *message << "\n"
+    std::cout << "received: " << message << "\n"
               << "host: " << senderEndpoint.address().to_string() << "\n" 
               << "port: " << senderEndpoint.port() << "\n"; 
 });
@@ -104,7 +104,7 @@ Now we could replace the template parameter from std::string into PlayerState to
 asionet::DatagramSender<PlayerState> sender{context};
 PlayerState playerState{"WhatAPlayer", 0.15f, 1.7f, 0.1f};
 sender.asyncSend(playerState, "127.0.0.1", 4242, 10ms);
-{{< / highlight >}}  
+{{< / highlight >}} 
 
 The only thing for that to work is to tell asionet how to serialize a PlayerState object into a string of bytes which is simply represented as a string.
 Therefore, we could just use the nlohmann json library which is an amazing piece of work by the way.
@@ -141,22 +141,22 @@ template<>
 struct Decoder<PlayerState>
 {
     template<typename ConstBuffer>
-    std::shared_ptr<PlayerState> operator()(const ConstBuffer & buffer) const
+    void operator()(const ConstBuffer & buffer, PlayerState & playerState) const
     {
          auto j = nlohmann::json::parse(buffer.begin(), buffer.end());
-         return std::make_shared<PlayerState>(
+         playerState = PlayerState{
              j.at("name").get<std::string>(),
              j.at("xPos").get<float>(),
              j.at("yPos").get<float>(),
              j.at("health").get<float>()
-         );
+         };
     }
 };
 
 }}
 {{< / highlight >}}
 
-Note that we have to define the call operator which takes a template argument and returns a shared_ptr of a PlayerState.
+Note that we have to define the call operator which takes a template argument and the message to be decoded.
 So what exactly is a ConstBuffer?
 Since it's a template argument, a ConstBuffer is not an actual class but instead represents an abstract buffer interface.
 This interface provides four methods:
@@ -168,17 +168,16 @@ This interface provides four methods:
 
 By using this abstraction, asionet may internally use the most suitable buffer representation for a specific operation.
 
-
 Finally, we can set up the UDP receiver as follows:
 
  {{< highlight cpp "linenos=inline" >}}
 asionet::DatagramReceiver<PlayerState> receiver{context, 4242};
 receiver.asyncReceive(1s, [](const auto & error, 
-                             const auto & playerState,
-                             const auto & senderEndpoint) 
+                             auto & playerState,
+                             auto & senderEndpoint) 
 {
     if (error) return;
-    std::cout << "player: " << playerState->name << "\n"; 
+    std::cout << "player: " << playerState.name << "\n"; 
 });
 {{< / highlight >}}
 
@@ -232,7 +231,7 @@ To create a server which receives incoming requests:
 {{< highlight cpp "linenos=inline" >}}
 asionet::ServiceServer<ChatService> server{context, 4242};
 server.advertiseService([](const boost::asio::ip::tcp::endpoint & senderEndpoint, 
-                           const std::shared_ptr<Query> & query,
+                           Query & query,
                            Response & response) 
 {
     std::cout << "Requesting " << query->numRequestedMessages << " messages\n";
@@ -240,10 +239,6 @@ server.advertiseService([](const boost::asio::ip::tcp::endpoint & senderEndpoint
 });
 {{< / highlight >}}
 That's it. Simple, right?
-Note that the request message (which is 'query' in this case) is passed as a const reference to shared_ptr but on the other hand the response message is a "normal" reference.
-This is because asionet was designed to avoid unnecessary copies. 
-Imagine you want to store the potentially large request message somewhere else in your program.
-You can do this by simply copying the pointer instead of the entire object.
 
 Finally, calling the server on the client side looks like this:
 
@@ -251,8 +246,7 @@ Finally, calling the server on the client side looks like this:
 asionet::ServiceClient<ChatService> client{context};
 client.asyncCall(
     Query{10, 12, 50}, "mychatserver.com", 4242, 10s, 
-    [](const asionet::error::Error & error, 
-       const std::shared_ptr<Response> & response) 
+    [](const asionet::error::Error & error, Response & response) 
     {
            if (error) return;
            for (const auto & message : response.messages)

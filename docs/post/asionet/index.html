@@ -157,11 +157,11 @@ link_libraries(asionet)
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 6</span><span style="color:#776e71"></span>asionet<span style="color:#5bc4bf">::</span>DatagramReceiver<span style="color:#5bc4bf">&lt;</span>std<span style="color:#5bc4bf">::</span>string<span style="color:#5bc4bf">&gt;</span> receiver{context, <span style="color:#f99b15">4242</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 7</span><span style="color:#776e71">// Receive a string message with timeout 1 second.
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 8</span><span style="color:#776e71"></span>receiver.asyncReceive(<span style="color:#f99b15">1</span>s, [](<span style="color:#815ba4">const</span> asionet<span style="color:#5bc4bf">::</span>error<span style="color:#5bc4bf">::</span>Error <span style="color:#5bc4bf">&amp;</span> error, 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 9</span>                             <span style="color:#815ba4">const</span> std<span style="color:#5bc4bf">::</span>shared_ptr<span style="color:#5bc4bf">&lt;</span>std<span style="color:#5bc4bf">::</span>string<span style="color:#5bc4bf">&gt;</span> <span style="color:#5bc4bf">&amp;</span> message,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 9</span>                             std<span style="color:#5bc4bf">::</span>string <span style="color:#5bc4bf">&amp;</span> message,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">10</span>                             <span style="color:#815ba4">const</span> boost<span style="color:#5bc4bf">::</span>asio<span style="color:#5bc4bf">::</span>ip<span style="color:#5bc4bf">::</span>udp<span style="color:#5bc4bf">::</span>endpoint <span style="color:#5bc4bf">&amp;</span> senderEndpoint) 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">11</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">12</span>    <span style="color:#815ba4">if</span> (error) <span style="color:#815ba4">return</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">13</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;received: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#5bc4bf">*</span>message <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">13</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;received: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> message <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">14</span>              <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;host: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> senderEndpoint.address().to_string() <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span> 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">15</span>              <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;port: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> senderEndpoint.port() <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>; 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">16</span>});
@@ -229,22 +229,22 @@ Therefore, we have to specialize the asionet::message::Decoder<PlayerState> stru
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 4</span><span style="color:#815ba4">struct</span> Decoder<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 5</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 6</span>    <span style="color:#815ba4">template</span><span style="color:#5bc4bf">&lt;</span><span style="color:#815ba4">typename</span> ConstBuffer<span style="color:#5bc4bf">&gt;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 7</span>    std<span style="color:#5bc4bf">::</span>shared_ptr<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span> <span style="color:#815ba4">operator</span>()(<span style="color:#815ba4">const</span> ConstBuffer <span style="color:#5bc4bf">&amp;</span> buffer) <span style="color:#815ba4">const</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 7</span>    <span style="color:#fec418">void</span> <span style="color:#815ba4">operator</span>()(<span style="color:#815ba4">const</span> ConstBuffer <span style="color:#5bc4bf">&amp;</span> buffer, PlayerState <span style="color:#5bc4bf">&amp;</span> playerState) <span style="color:#815ba4">const</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 8</span>    {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 9</span>         <span style="color:#815ba4">auto</span> j <span style="color:#5bc4bf">=</span> nlohmann<span style="color:#5bc4bf">::</span>json<span style="color:#5bc4bf">::</span>parse(buffer.begin(), buffer.end());
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">10</span>         <span style="color:#815ba4">return</span> std<span style="color:#5bc4bf">::</span>make_shared<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span>(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">10</span>         playerState <span style="color:#5bc4bf">=</span> PlayerState{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">11</span>             j.at(<span style="color:#48b685">&#34;name&#34;</span>).get<span style="color:#5bc4bf">&lt;</span>std<span style="color:#5bc4bf">::</span>string<span style="color:#5bc4bf">&gt;</span>(),
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">12</span>             j.at(<span style="color:#48b685">&#34;xPos&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>(),
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">13</span>             j.at(<span style="color:#48b685">&#34;yPos&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>(),
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">14</span>             j.at(<span style="color:#48b685">&#34;health&#34;</span>).get<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">float</span><span style="color:#5bc4bf">&gt;</span>()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">15</span>         );
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">15</span>         };
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">16</span>    }
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">17</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">18</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">19</span>}}
 </code></pre></div>
 
-<p>Note that we have to define the call operator which takes a template argument and returns a shared_ptr of a PlayerState.
+<p>Note that we have to define the call operator which takes a template argument and the message to be decoded.
 So what exactly is a ConstBuffer?
 Since it&rsquo;s a template argument, a ConstBuffer is not an actual class but instead represents an abstract buffer interface.
 This interface provides four methods:</p>
@@ -262,11 +262,11 @@ This interface provides four methods:</p>
 
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">1</span>asionet<span style="color:#5bc4bf">::</span>DatagramReceiver<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span> receiver{context, <span style="color:#f99b15">4242</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">2</span>receiver.asyncReceive(<span style="color:#f99b15">1</span>s, [](<span style="color:#815ba4">const</span> <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> error, 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">3</span>                             <span style="color:#815ba4">const</span> <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> playerState,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">4</span>                             <span style="color:#815ba4">const</span> <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> senderEndpoint) 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">3</span>                             <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> playerState,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">4</span>                             <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> senderEndpoint) 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">5</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">6</span>    <span style="color:#815ba4">if</span> (error) <span style="color:#815ba4">return</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">7</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;player: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> playerState<span style="color:#5bc4bf">-&gt;</span>name <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>; 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">7</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;player: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> playerState.name <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>; 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">8</span>});
 </code></pre></div>
 
@@ -315,31 +315,26 @@ Since this works exactly as shown above using the PlayerState class, we just jum
 
 <p><div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">1</span>asionet<span style="color:#5bc4bf">::</span>ServiceServer<span style="color:#5bc4bf">&lt;</span>ChatService<span style="color:#5bc4bf">&gt;</span> server{context, <span style="color:#f99b15">4242</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">2</span>server.advertiseService([](<span style="color:#815ba4">const</span> boost<span style="color:#5bc4bf">::</span>asio<span style="color:#5bc4bf">::</span>ip<span style="color:#5bc4bf">::</span>tcp<span style="color:#5bc4bf">::</span>endpoint <span style="color:#5bc4bf">&amp;</span> senderEndpoint, 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">3</span>                           <span style="color:#815ba4">const</span> std<span style="color:#5bc4bf">::</span>shared_ptr<span style="color:#5bc4bf">&lt;</span>Query<span style="color:#5bc4bf">&gt;</span> <span style="color:#5bc4bf">&amp;</span> query,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">3</span>                           Query <span style="color:#5bc4bf">&amp;</span> query,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">4</span>                           Response <span style="color:#5bc4bf">&amp;</span> response) 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">5</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">6</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;Requesting &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> query<span style="color:#5bc4bf">-&gt;</span>numRequestedMessages <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34; messages</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">7</span>    response <span style="color:#5bc4bf">=</span> <span style="color:#776e71">/* create your response */</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">8</span>});
 </code></pre></div>
-That&rsquo;s it. Simple, right?
-Note that the request message (which is &lsquo;query&rsquo; in this case) is passed as a const reference to shared_ptr but on the other hand the response message is a &ldquo;normal&rdquo; reference.
-This is because asionet was designed to avoid unnecessary copies.
-Imagine you want to store the potentially large request message somewhere else in your program.
-You can do this by simply copying the pointer instead of the entire object.</p>
+That&rsquo;s it. Simple, right?</p>
 
 <p>Finally, calling the server on the client side looks like this:</p>
 
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 1</span>asionet<span style="color:#5bc4bf">::</span>ServiceClient<span style="color:#5bc4bf">&lt;</span>ChatService<span style="color:#5bc4bf">&gt;</span> client{context};
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 2</span>client.asyncCall(
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 3</span>    Query{<span style="color:#f99b15">10</span>, <span style="color:#f99b15">12</span>, <span style="color:#f99b15">50</span>}, <span style="color:#48b685">&#34;mychatserver.com&#34;</span>, <span style="color:#f99b15">4242</span>, <span style="color:#f99b15">10</span>s, 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 4</span>    [](<span style="color:#815ba4">const</span> asionet<span style="color:#5bc4bf">::</span>error<span style="color:#5bc4bf">::</span>Error <span style="color:#5bc4bf">&amp;</span> error, 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 5</span>       <span style="color:#815ba4">const</span> std<span style="color:#5bc4bf">::</span>shared_ptr<span style="color:#5bc4bf">&lt;</span>Response<span style="color:#5bc4bf">&gt;</span> <span style="color:#5bc4bf">&amp;</span> response) 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 6</span>    {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 7</span>           <span style="color:#815ba4">if</span> (error) <span style="color:#815ba4">return</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 8</span>           <span style="color:#815ba4">for</span> (<span style="color:#815ba4">const</span> <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> message : response.messages)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d"> 9</span>                std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> message.author <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34; wrote: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> message.content <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">10</span>    });
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">1</span>asionet<span style="color:#5bc4bf">::</span>ServiceClient<span style="color:#5bc4bf">&lt;</span>ChatService<span style="color:#5bc4bf">&gt;</span> client{context};
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">2</span>client.asyncCall(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">3</span>    Query{<span style="color:#f99b15">10</span>, <span style="color:#f99b15">12</span>, <span style="color:#f99b15">50</span>}, <span style="color:#48b685">&#34;mychatserver.com&#34;</span>, <span style="color:#f99b15">4242</span>, <span style="color:#f99b15">10</span>s, 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">4</span>    [](<span style="color:#815ba4">const</span> asionet<span style="color:#5bc4bf">::</span>error<span style="color:#5bc4bf">::</span>Error <span style="color:#5bc4bf">&amp;</span> error, Response <span style="color:#5bc4bf">&amp;</span> response) 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">5</span>    {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">6</span>           <span style="color:#815ba4">if</span> (error) <span style="color:#815ba4">return</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">7</span>           <span style="color:#815ba4">for</span> (<span style="color:#815ba4">const</span> <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> message : response.messages)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">8</span>                std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> message.author <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34; wrote: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> message.content <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">9</span>    });
 </code></pre></div>
 
 <h2 id="ensuring-thread-safety">Ensuring thread-safety</h2>
