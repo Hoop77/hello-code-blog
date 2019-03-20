@@ -31,11 +31,19 @@ h6 {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 48px;
+    margin-top: 100px;
+}
+
+@media only screen and (min-width:768px) {
+    h1 {
+        font-size: 60px;
+    }
 }
 
 h2 {
     font-size: 32px;
+    margin-top: 80px;
 }
 
 h3 {
@@ -212,6 +220,7 @@ hr.small {
     font-family: 'Source Code Pro', monospace;
     font-weight: 900;
     text-align: center;
+    margin: 30px 0;
 }
 
 @media only screen and (min-width:768px) {
@@ -451,9 +460,9 @@ form .row:first-child .floating-label-form-group {
 }
 
 ::selection {
-    color: #fff
+    color: #fff;
     text-shadow: none;
-    background: #0085a1
+    background: #0085a1;
 }
 
 img::selection {
@@ -641,11 +650,36 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+.highlight {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin: 40px 0 40px -50vw;
+    background-color: #2f1e2e;
+}
+
 pre {
+    width: 100%;
+    margin: 0 auto;
     font-size: 14px;
-    border-radius: 10px;
-    padding: 10px;
+    padding: 40px 15px;
     overflow: auto;
+}
+
+@media only screen and (min-width:576px) {
+    pre { max-width: 540px; }
+}
+
+@media only screen and (min-width:768px) {
+    pre { max-width: 720px; }
+}
+
+@media only screen and (min-width:992px) {
+    pre { max-width: 960px; }
+}
+
+@media only screen and (min-width:1200px) {
+    pre { max-width: 1140px; }
 }
 
 .btn-primary {

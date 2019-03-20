@@ -99,9 +99,7 @@
     
     <article>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                  
+              
 
 <h1 id="introduction">Introduction</h1>
 
@@ -117,31 +115,28 @@ For example, managing timeouts and sending and receiving serialized messages is 
 <p>In order to use the library, you have to compile with the C++14 standard and make sure to include Boost 1.66 and your system&rsquo;s thread library in your project.
 In your CMakeLists.txt, insert:</p>
 
-<pre><code>set(CMAKE_CXX_STANDARD 14)
-find_package(Boost REQUIRED COMPONENTS system regex)
-find_package(Threads)
-link_libraries(${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
-</code></pre>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">1</span>set(<span style="color:#48b685">CMAKE_CXX_STANDARD</span> <span style="color:#48b685">14</span>)<span style="color:#ef6155">
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">2</span><span style="color:#ef6155"></span>find_package(<span style="color:#48b685">Boost</span> <span style="color:#48b685">REQUIRED</span> <span style="color:#48b685">COMPONENTS</span> <span style="color:#48b685">system</span> <span style="color:#48b685">regex</span>)<span style="color:#ef6155">
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">3</span><span style="color:#ef6155"></span>find_package(<span style="color:#48b685">Threads</span>)<span style="color:#ef6155">
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">4</span><span style="color:#ef6155"></span>link_libraries(<span style="color:#5bc4bf">${</span><span style="color:#ef6155">Boost_LIBRARIES</span><span style="color:#5bc4bf">}</span> <span style="color:#5bc4bf">${</span><span style="color:#ef6155">CMAKE_THREAD_LIBS_INIT</span><span style="color:#5bc4bf">}</span>)</code></pre></div>
 
 <h2 id="installation">Installation</h2>
 
 <p>Get the repository, build and install it.</p>
 
-<pre><code>$ git clone https://github.com/Badenhoop/asionet
-$ cd asionet
-$ mkdir build
-$ cd build
-$ cmake ..
-$ sudo make install
-</code></pre>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">1</span>$ git clone https://github.com/Badenhoop/asionet
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">2</span>$ cd asionet
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">3</span>$ mkdir build
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">4</span>$ cd build
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">5</span>$ cmake ..
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">6</span>$ sudo make install</code></pre></div>
 
 <h2 id="usage">Usage</h2>
 
 <p>Just insert the following into your CMakeLists.txt file:</p>
 
-<pre><code>find_package(asionet)
-link_libraries(asionet)
-</code></pre>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">1</span>find_package(<span style="color:#48b685">asionet</span>)<span style="color:#ef6155">
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">2</span><span style="color:#ef6155"></span>link_libraries(<span style="color:#48b685">asionet</span>)</code></pre></div>
 
 <h1 id="tutorial">Tutorial</h1>
 
@@ -529,10 +524,8 @@ For example, we can send and receive messages with boost::asio::ip::tcp::socket 
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#73746d">7</span><span style="color:#776e71"></span>asionet<span style="color:#5bc4bf">::</span>message<span style="color:#5bc4bf">::</span>asyncSend(socket, PlayerState{<span style="color:#48b685">&#34;name&#34;</span>, <span style="color:#f99b15">1.f</span>, <span style="color:#f99b15">0.f</span>, <span style="color:#f99b15">0.5f</span>}, <span style="color:#f99b15">1</span>s);
 </code></pre></div>
 
-                  
+              
 
-                </div>
-            </div>
         </div>
     </article>
 
