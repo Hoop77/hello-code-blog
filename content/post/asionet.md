@@ -26,28 +26,34 @@ For example, managing timeouts and sending and receiving serialized messages is 
 In order to use the library, you have to compile with the C++14 standard and make sure to include Boost 1.66 and your system's thread library in your project.
 In your CMakeLists.txt, insert:
 
-    set(CMAKE_CXX_STANDARD 14)
-    find_package(Boost REQUIRED COMPONENTS system regex)
-    find_package(Threads)
-    link_libraries(${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+{{< highlight cmake "linenos=inline" >}}
+set(CMAKE_CXX_STANDARD 14)
+find_package(Boost REQUIRED COMPONENTS system regex)
+find_package(Threads)
+link_libraries(${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+{{< / highlight >}}
 
 ## Installation
 
 Get the repository, build and install it.
 
-    $ git clone https://github.com/Badenhoop/asionet
-    $ cd asionet
-    $ mkdir build
-    $ cd build
-    $ cmake ..
-    $ sudo make install
+{{< highlight bash "linenos=inline" >}}
+$ git clone https://github.com/Badenhoop/asionet
+$ cd asionet
+$ mkdir build
+$ cd build
+$ cmake ..
+$ sudo make install
+{{< / highlight >}}
 
 ## Usage
 
 Just insert the following into your CMakeLists.txt file:
 
-    find_package(asionet)
-    link_libraries(asionet)
+{{< highlight cmake "linenos=inline" >}}
+find_package(asionet)
+link_libraries(asionet)
+{{< / highlight >}}
 
 # Tutorial
 
