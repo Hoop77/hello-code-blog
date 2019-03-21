@@ -104,7 +104,7 @@ struct PlayerState
 };
 {{< / highlight >}}
 
-Now we could replace the template parameter from std::string into PlayerState to tell DatagramSender to send PlayerState objects:
+Now we could replace the template parameter from std::string with PlayerState to tell DatagramSender to send PlayerState objects:
 
 {{< highlight cpp "linenos=inline" >}}
 asionet::DatagramSender<PlayerState> sender{context};

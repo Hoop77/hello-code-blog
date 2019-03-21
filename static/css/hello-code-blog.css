@@ -658,7 +658,7 @@ input:checked + .slider:before {
     background-color: #2f1e2e;
 }
 
-pre {
+.highlight pre {
     width: 100%;
     margin: 0 auto;
     font-size: 14px;
@@ -667,19 +667,19 @@ pre {
 }
 
 @media only screen and (min-width:576px) {
-    pre { max-width: 540px; }
+    .highlight pre { max-width: 540px; }
 }
 
 @media only screen and (min-width:768px) {
-    pre { max-width: 720px; }
+    .highlight pre { max-width: 720px; }
 }
 
 @media only screen and (min-width:992px) {
-    pre { max-width: 960px; }
+    .highlight pre { max-width: 960px; }
 }
 
 @media only screen and (min-width:1200px) {
-    pre { max-width: 1140px; }
+    .highlight pre { max-width: 1140px; }
 }
 
 .btn-primary {
