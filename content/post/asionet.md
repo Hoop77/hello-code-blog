@@ -451,7 +451,7 @@ w3.setWaiting();
 {{< / highlight >}}
 
 
-## Compatibility to boost::asio
+## Compatibility with boost::asio
 
 As already mentioned, asionet was designed to be seamlessly usable with existing boost::asio code.
 For example, we can send and receive messages with boost::asio::ip::tcp::socket objects directly without having to use the ServiceServer or ServiceClient object:
