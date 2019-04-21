@@ -149,7 +149,7 @@ struct Decoder<PlayerState>
     template<typename ConstBuffer>
     void operator()(const ConstBuffer & buffer, PlayerState & playerState) const
     {
-        std::string s{buffer.begin(), buffer.end()}
+        std::string s{buffer.begin(), buffer.end()};
         auto j = nlohmann::json::parse(s);
         playerState = PlayerState{
             j.at("name").get<std::string>(),
