@@ -86,7 +86,11 @@ The following code sends a UDP message containing the string "Hello World!" to I
 
 {{< highlight cpp "linenos=inline" >}}
 asionet::DatagramSender<std::string> sender{context};
-sender.asyncSend("Hello World!", "127.0.0.1", 4242, 10ms);
+sender.asyncSend("Hello World!", "127.0.0.1", 4242, 10ms, [](const asionet::error::Error & error)
+{
+    if (error)
+        // handle error ...
+});
 {{< / highlight >}}
 
 ## Defining custom messages
@@ -464,5 +468,5 @@ boost::asio::ip::tcp::endpoint endpoint{
     boost::asio::ip::address::from_string("1.2.3.4"), 4242};
 socket.connect(endpoint);
 // Send the message over the socket.
-asionet::message::asyncSend(socket, PlayerState{"name", 1.f, 0.f, 0.5f}, 1s);
+asionet::message::asyncSend(socket, PlayerState{"name", 1.f, 0.f, 0.5f}, 1s, [](auto && ...){});
 {{< / highlight >}}
