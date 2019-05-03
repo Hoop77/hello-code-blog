@@ -2,12 +2,12 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    {{ if isset .Params "image" }}<header class="intro-header" style="background-image: url('{{ .Site.BaseURL }}/{{ .Params.image }}')">
+    {{ if isset .Params "image" }}<header class="intro-header" style="background-image: url('{{ .Site.BaseURL }}img/{{ .Params.image }}')">
       {{ else }}<header class="intro-header">
     {{ end }}
       <div class="container">
         <div class="row">
-           <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+           <div class="col-10 offset-1">
              <div class="post-heading">
                 <h1>{{ .Title }}</h1>
                 <div class="subheading syntax-color-comment">
