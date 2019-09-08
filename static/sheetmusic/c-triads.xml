@@ -8,7 +8,7 @@
     <creator type="composer">Composer</creator>
     <encoding>
       <software>MuseScore 2.0.2</software>
-      <encoding-date>2019-09-09</encoding-date>
+      <encoding-date>2019-09-08</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -81,6 +81,12 @@
           <line>2</line>
           </clef>
         </attributes>
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        </harmony>
       <note default-x="75.20" default-y="-50.00">
         <pitch>
           <step>C</step>
@@ -90,16 +96,8 @@
         <voice>1</voice>
         <type>whole</type>
         </note>
-      <note default-x="221.13" default-y="-45.00">
-        <pitch>
-          <step>D</step>
-          <octave>4</octave>
-          </pitch>
-        <duration>4</duration>
-        <voice>1</voice>
-        <type>whole</type>
-        </note>
-      <note default-x="367.06" default-y="-40.00">
+      <note default-x="75.20" default-y="-40.00">
+        <chord/>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -108,16 +106,8 @@
         <voice>1</voice>
         <type>whole</type>
         </note>
-      <note default-x="512.98" default-y="-35.00">
-        <pitch>
-          <step>F</step>
-          <octave>4</octave>
-          </pitch>
-        <duration>4</duration>
-        <voice>1</voice>
-        <type>whole</type>
-        </note>
-      <note default-x="658.91" default-y="-30.00">
+      <note default-x="75.20" default-y="-30.00">
+        <chord/>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -126,27 +116,120 @@
         <voice>1</voice>
         <type>whole</type>
         </note>
-      <note default-x="804.84" default-y="-25.00">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        </harmony>
+      <note default-x="332.82" default-y="-50.00">
         <pitch>
-          <step>A</step>
+          <step>C</step>
           <octave>4</octave>
           </pitch>
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
         </note>
-      <note default-x="950.77" default-y="-20.00">
+      <note default-x="332.82" default-y="-40.00">
+        <chord/>
         <pitch>
-          <step>B</step>
+          <step>E</step>
+          <alter>-1</alter>
+          <octave>4</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        <accidental>flat</accidental>
+        </note>
+      <note default-x="332.82" default-y="-30.00">
+        <chord/>
+        <pitch>
+          <step>G</step>
           <octave>4</octave>
           </pitch>
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
         </note>
-      <barline location="right">
-        <bar-style>light-heavy</bar-style>
-        </barline>
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind text="dim">diminished</kind>
+        </harmony>
+      <note default-x="590.45" default-y="-50.00">
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        </note>
+      <note default-x="590.45" default-y="-40.00">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <alter>-1</alter>
+          <octave>4</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        <accidental>flat</accidental>
+        </note>
+      <note default-x="590.45" default-y="-30.00">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <alter>-1</alter>
+          <octave>4</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        <accidental>flat</accidental>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind text="aug">augmented</kind>
+        </harmony>
+      <note default-x="848.07" default-y="-50.00">
+        <pitch>
+          <step>C</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        </note>
+      <note default-x="848.07" default-y="-40.00">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <alter>-1</alter>
+          <octave>4</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        </note>
+      <note default-x="848.07" default-y="-30.00">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        <accidental>sharp</accidental>
+        </note>
       </measure>
     </part>
   </score-partwise>
