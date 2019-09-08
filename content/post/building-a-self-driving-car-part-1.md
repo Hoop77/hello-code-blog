@@ -12,19 +12,24 @@ image: yoshicar-dark.jpeg
 markup: mmark
 ---
 
-# Part Selection
+# Motivation
 
 I really started to miss the times hacking on our cute little robocar from college... 
 
 ... so I decided to build my own.
-This time I want to experiment with indoor navigation using LIDAR. As poor students don't have much money, I focused on keeping the costs as low as possible.
-Here is the list of its parts:
+This time I want to experiment with indoor navigation using a LIDAR sensor and the robot operating system (ROS). 
+As poor students don't have much money, I focused on keeping the costs as low as possible.
+
+In this article, I will present all sorts of useful bits of information which may be helpful to get started when building your own self-driving robocar.
+As said this is just to get started so I will continue this series to show how I implement indoor navigation using ROS.
+
+# Components
 
 {.table .table-striped}
-Part | Product Name
+Component | Product Name
 --- | ---
 The car itself | H-King Rattler 1/8 4WD Buggy V2 (ARR) with 60A ESC
-The brain | Raspberry Pi 3 b+
+Compute module | Raspberry Pi 3 b+
 Micro-SD card | 64GB SanDisk Ultra microSDHC Memory Card
 Voltage converter | DC to DC 4.5-30V to 1-30V 12A Buck Converter Step Down
 PWM board | AZDelivery PCA9685 16 Channel 12 Bit PWM Servoid Driver
@@ -44,11 +49,6 @@ Altogether, the car costs about 400€.
 
 I used [this](https://downloads.ubiquityrobotics.com/) Ubuntu 16 image which you can easily write on your SD-card using GParted.
 The image has ROS Kinetic already installed.
-
-## Configure static IP address
-
-I recommend setting up a static IP address. 
-TODO
 
 ## Controlling PWM signals
 

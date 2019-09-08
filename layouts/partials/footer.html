@@ -36,23 +36,31 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="{{ .Site.BaseURL }}/js/jquery.min.js"></script>
+    <script src="{{ .Site.BaseURL }}js/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ .Site.BaseURL }}/js/bootstrap.min.js"></script>
+    <script src="{{ .Site.BaseURL }}js/bootstrap.min.js"></script>
 
+    {{ if in .Params.use "math" }}
     <!-- MathJax for math equations -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    {{ end }}
+
+    {{ if in .Params.use "sheetmusic" }}
+    <!-- OpenSheetMusicDisplay for sheet music -->
+    <script src='{{ .Site.BaseURL }}js/opensheetmusicdisplay.min.js'></script>
+    <script src="{{ .Site.BaseURL }}js/sheetmusic.js"></script>
+    {{ end }}
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ .Site.BaseURL }}/js/hello-code-blog.js"></script>
+    <script src="{{ .Site.BaseURL }}js/hello-code-blog.js"></script>
 
     <!-- Cookies -->
     <script>
       // Generate the html of the cookie consent template inside a global variable.
       COOKIE_CONSENT = '{{ partial "cookie-consent.html" . }}'
     </script>
-    <script src="{{ .Site.BaseURL }}/js/cookie.js"></script>
+    <script src="{{ .Site.BaseURL }}js/cookie.js"></script>
 
 </body>
 
