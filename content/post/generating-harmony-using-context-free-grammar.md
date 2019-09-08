@@ -77,6 +77,10 @@ All diatonic triads over a C major scale with their respective degree are shown 
 
 {{< sheetmusic file="sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
 
+Finally, we could go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
+In fact, if you want to start a career as a pop musician, you may already learned enough theory to produce your four-chord-songs.
+However, chord progressions in jazz and classical music are more complex and require a more thorough understanding of how the music works.
+
 # Functional Harmony (TODO)
 
 In his paper [Towards a generative syntax of tonal harmony](https://www.tandfonline.com/doi/pdf/10.1080/17459737.2011.573676?needAccess=true),
