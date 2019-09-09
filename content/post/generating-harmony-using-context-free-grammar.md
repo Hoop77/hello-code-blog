@@ -12,11 +12,12 @@ markup: mmark
 use: [math, sheetmusic]
 ---
 
-# Introduction
+# Background
 
-In this post, I will explain an exciting framework used to analyze and generate sequences of chords in musical pieces. 
+In this post, I explain an exciting framework used to analyze and generate sequences of chords in musical pieces. 
+Before diving into the main part, I provide a brief introduction of the necessary concepts in music and harmony theory.
 
-## Background
+## Music Theory - Chords and Scale Degrees
 
 Playing the piano has always been one of my greatest passions.
 After playing classical music for several years, I fell in love with improvisation as well as playing songs in different arrangements and styles.
@@ -51,18 +52,22 @@ The resulting **nineth**, **eleventh** and **thirteenth** chords are especially 
 The whole point of the theory of harmony is to put chords into a musical context.
 Most commonly in western music, this context is induced by the major or minor scale.
 A scale is just a set of notes that follow a specific interval pattern.
-For example, a major scale has seven notes which stack up in the following (repeating) interval sequence:
+For example, a **major scale** has seven notes which stack up in the following (repeating) interval sequence beginning from the root note:
 
-root, whole step, whole step, half step, whole step, whole step, whole step, half step and now we're back at the root.
+whole step -> whole step -> half step -> whole step -> whole step -> whole step -> half step
 
-In music notation, the following represents a C major scale:
+In sheet music notation, the following represents a C major scale:
 
+{{< audio file="audio/c-major-scale.mp3" >}}
 {{< sheetmusic file="sheetmusic/c-major-scale.xml" mode="simple" >}}
 
-The minor scale follows a different pattern:
-root, whole step, half step, whole step, whole step, half step, whole step, whole step.
-A C minor scale looks like this:
+The **minor scale** follows a different pattern (starting from the root note):
 
+whole step -> half step -> whole step -> whole step -> half step -> whole step -> whole step
+
+A C minor scale for example, looks like this:
+
+{{< audio file="audio/c-minor-scale.mp3" >}}
 {{< sheetmusic file="sheetmusic/c-minor-scale.xml" mode="simple" >}}
 
 Now, we can build so called **diatonic** chords from a scale.
@@ -77,11 +82,53 @@ All diatonic triads over a C major scale with their respective degree are shown 
 
 {{< sheetmusic file="sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
 
-Finally, we could go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
-In fact, if you want to start a career as a pop musician, you may already learned enough theory to produce your four-chord-songs.
-However, chord progressions in jazz and classical music are more complex and require a more thorough understanding of how the music works.
+Finally, you can go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
+In fact, if you want to start a career as a pop musician, you may already learned enough theory to produce basic four-chord-songs played by famous interpreters such as Ed Sheeran.
+However, chord progressions in jazz and classical music are more complex and require a more thorough understanding of how the music was composed.
 
-# Functional Harmony (TODO)
+## Functional Harmony
+
+In the theory of **Functional Harmony**, each chord has a certain purpose or **function** in relation to a tonal center.
+In the context of a major or minor scale, the tonal center (also called the **tonic**) is the first degree of our scale.
+This starts to make sense when we introduce the **dominant** function, defined as the fifth scale degree.
+When played in a chord progression, the dominant wants to resolve to the tonic.
+Let's take a look at a the following vi-ii-V-I progression in C major:
+
+{{< audio file="audio/6-2-5-1-cadence-triads.mp3" >}}
+{{< sheetmusic file="sheetmusic/6-2-5-1-cadence-triads.xml" mode="simple" >}}
+
+First of all, you may wonder that these chords doesn't look like those from above.
+That is because here we used **inversions** of the chords which means that we simply shifted some notes an octave up or down.
+So as long as the notes names remain the same, we still talk about the same chord.
+
+When you heard the G chord, you probably already had some expectations of what comes next.
+Notice that the C chord at the end sounds very satisfying and stable, just like coming home.
+As we enter the field of jazz, it's common to use seventh chords all the time.
+Here is the same chord progression but with seventh chords instead of triads (notice that the functions remain the same):
+
+{{< audio file="audio/6-2-5-1-cadence-sevenths.mp3" >}}
+{{< sheetmusic file="sheetmusic/6-2-5-1-cadence-sevenths.xml" mode="simple" >}}
+
+In addition to that, the IV and the ii serve a **predominant** (also called subdominant) function which prepares the dominant (the *Dm7* in this example).
+If you play jazz, you'll definitely stumble upon the omnipresent ii-V-I progression.
+
+It turns out that we can actually approach any chord from a fifth above with a **dominant seventh chord**.
+A dominant seventh chord is stacked up of a major third, a minor third and another minor third.
+The *G7* in the progression is a dominant seventh chord for example.
+Using this principle, we can approach the *Dm* with an *A7* dominant seventh chord instead of an *Am7* as shown in the following example:
+
+{{< audio file="audio/6dom-2-5-1-cadence-sevenths.mp3" >}}
+{{< sheetmusic file="sheetmusic/6dom-2-5-1-cadence-sevenths.xml" mode="simple" >}}
+
+Note that the *A7* is quite unusual because the *c♯* does not belong to the key of C major.
+If a chord contains a note that isn't part of the current key, it is called a **non-diatonic** chord.
+As you can hear, the *A7* leads more strongly to the *Dm7* than to the *Am7* did.
+Therefore, the *A7* is called a **secondary dominant** because it has a dominant function that leads to a chord which is not the tonic.
+
+Functional harmony can explain progressions quite well which stay in the same tonal center and exhibit only limited non-diatonic occurences.
+However, in classical music and jazz, we often observe chord sequences that are very difficult to come up with by using this theory (key changes for example).
+
+# Generative Framework
 
 In his paper [Towards a generative syntax of tonal harmony](https://www.tandfonline.com/doi/pdf/10.1080/17459737.2011.573676?needAccess=true),
 Martin Rohrmeier created a formal framework which uses context free grammar rules to generate chord sequences.

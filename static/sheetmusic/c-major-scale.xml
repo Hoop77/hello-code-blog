@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise>
-  <work>
-    <work-title>Title</work-title>
-    </work>
   <identification>
-    <creator type="composer">Composer</creator>
     <encoding>
       <software>MuseScore 2.0.2</software>
       <encoding-date>2019-09-09</encoding-date>
@@ -89,8 +85,12 @@
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>c</text>
+          </lyric>
         </note>
-      <note default-x="221.13" default-y="-45.00">
+      <note default-x="202.89" default-y="-45.00">
         <pitch>
           <step>D</step>
           <octave>4</octave>
@@ -98,8 +98,16 @@
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>d</text>
+          </lyric>
+        <lyric number="2">
+          <syllabic>end</syllabic>
+          <text>whole</text>
+          </lyric>
         </note>
-      <note default-x="367.06" default-y="-40.00">
+      <note default-x="330.57" default-y="-40.00">
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -107,8 +115,16 @@
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>e</text>
+          </lyric>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>whole</text>
+          </lyric>
         </note>
-      <note default-x="512.98" default-y="-35.00">
+      <note default-x="458.26" default-y="-35.00">
         <pitch>
           <step>F</step>
           <octave>4</octave>
@@ -116,8 +132,16 @@
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>f</text>
+          </lyric>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>half</text>
+          </lyric>
         </note>
-      <note default-x="658.91" default-y="-30.00">
+      <note default-x="585.95" default-y="-30.00">
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -125,8 +149,16 @@
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>g</text>
+          </lyric>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>whole</text>
+          </lyric>
         </note>
-      <note default-x="804.84" default-y="-25.00">
+      <note default-x="713.63" default-y="-25.00">
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -134,8 +166,16 @@
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>a</text>
+          </lyric>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>whole</text>
+          </lyric>
         </note>
-      <note default-x="950.77" default-y="-20.00">
+      <note default-x="841.32" default-y="-20.00">
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -143,6 +183,31 @@
         <duration>4</duration>
         <voice>1</voice>
         <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>b</text>
+          </lyric>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>whole</text>
+          </lyric>
+        </note>
+      <note default-x="969.01" default-y="-15.00">
+        <pitch>
+          <step>C</step>
+          <octave>5</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        <lyric number="1">
+          <syllabic>single</syllabic>
+          <text>c</text>
+          </lyric>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>half</text>
+          </lyric>
         </note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
