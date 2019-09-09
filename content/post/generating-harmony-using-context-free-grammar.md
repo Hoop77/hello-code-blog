@@ -125,16 +125,39 @@ If a chord contains a note that isn't part of the current key, it is called a **
 As you can hear, the *A7* leads more strongly to the *Dm7* than to the *Am7* did.
 Therefore, the *A7* is called a **secondary dominant** because it has a dominant function that leads to a chord which is not the tonic.
 
-Functional harmony can explain progressions quite well which stay in the same tonal center and exhibit only limited non-diatonic occurences.
+Functional harmony can explain progressions quite well which stay in the same tonal center and exhibit only limited non-diatonic occurrences.
 However, in classical music and jazz, we often observe chord sequences that are very difficult to come up with by using this theory (key changes for example).
 
-# Generative Framework
+# The Generative Framework
 
-In his paper [Towards a generative syntax of tonal harmony](https://www.tandfonline.com/doi/pdf/10.1080/17459737.2011.573676?needAccess=true),
-Martin Rohrmeier created a formal framework which uses context free grammar rules to generate chord sequences.
-While his method is meant to generalize to all kinds of musical styles, I found it especially applicable to explain the harmoic structure of jazz standards.
+Now, you're ready to learn about a very young theory invented by Martin Rohrmeier.
+Fortunately, I had the pleasure to meet him at a summer academy and I am excited to share what he taught at his lectures.
+In his theory, he generalizes the concepts of functional harmony to two core relations between chords, namely **preparation** and **prolongation**.
 
-- Concepts of Preparation and Prolongation
-- Grammar rules
-- showing tree
+### Preparations
+
+In functional harmony, we said that a dominant chord resolves to the chord a fifth below.
+This is clearly one but not the only relation between two chords where a chord prepares another one.
+Other prepartory dependencies are for example:
+
+* V-I
+* ii-V
+* iii-VI
+* vii-I
+* IV-V
+
+The reason why we put them into a single category is because they share a common **interpretation** which is a goal-directed motion and the build-up and release of musical tension.
+
+### Prolongations
+
+The second core relation between chords extends or **prolongs** the span of a given chord.
+The simplest form of prolonging a chord is by repeating itself but it could also be prolonged by its relative.
+Here are some examples:
+
+* I-I
+* V-V
+* vi-vi
+* I-vi (prolonged by its relative)
+
+Just like preparation relations, all prolongation rules have a common interpretation which is the temporal extension of a chord.
 

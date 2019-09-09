@@ -283,7 +283,7 @@
         <root>
           <root-step>C</root-step>
           </root>
-        <kind text="maj7">major-seventh</kind>
+        <kind text="M7">major-seventh</kind>
         </harmony>
       <note default-x="258.47" default-y="-40.00">
         <pitch>
