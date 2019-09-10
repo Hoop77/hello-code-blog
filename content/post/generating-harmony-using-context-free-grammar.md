@@ -7,6 +7,7 @@ date: 2019-09-10
 draft: false
 tags:
 - Music Theory
+- Music Generation
 - Theoretical Computer Science
 markup: mmark
 use: [math, sheetmusic]
