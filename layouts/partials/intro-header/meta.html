@@ -2,12 +2,10 @@
   {{ if .Site.Params.ShowReadTime }}
     A {{ .ReadingTime }} minute read,
   {{ end }}
-  /** <br />
-  &nbsp;* <span class="syntax-color-highlight">\author</span> {{ .Page.Params.Author.name }}
+  <span class="syntax-color-highlight">\author</span> {{ .Page.Params.Author.name }}
   <br />
-  &nbsp;* <span class="syntax-color-highlight">\date</span> <span>{{ dateFormat (.Site.Params.DateForm | default "Mon, Jan 2, 2006") .Date }}</span>
+  <span class="syntax-color-highlight">\date</span> <span>{{ dateFormat (.Site.Params.DateForm | default "Mon, Jan 2, 2006") .Date }}</span>
   <br />
-  &nbsp;* <span class="syntax-color-highlight">\tags</span> <span>{{ partial "intro-header/tags.html" .}}</span>
+  <span class="syntax-color-highlight">\tags</span> <span>{{ partial "intro-header/tags.html" .}}</span>
   <br />
-  &nbsp;*/
 </span>

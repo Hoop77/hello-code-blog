@@ -33,7 +33,7 @@ The simplest form of a chord is the **triad** which consists of two stacked thir
 For example, the C major chord contains the notes *c*, *e* and *g* which are derived by going a major third (four half steps) from *c* to *e* and a minor third (three half steps) from *e* to *g*.
 Similarily, we can define the three remaining triad types:
 
-{.table .table-striped}
+{.table .table-striped .table-responsive}
 type | first interval | second interval | example notation | example notes
 --- | --- | --- | --- | ---
 major triad | major third | minor third | *C* | *c*, *e*, *g*
