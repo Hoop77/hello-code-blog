@@ -78,12 +78,6 @@
   </url>
   
   <url>
-    <loc>https://hellocodeblog.com/tags/context-free-grammar/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://hellocodeblog.com/tags/deep-learning/</loc>
     <lastmod>2019-02-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -122,6 +116,12 @@
   <url>
     <loc>https://hellocodeblog.com/</loc>
     <lastmod>2015-05-24T18:52:04+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/theoretical-computer-science/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

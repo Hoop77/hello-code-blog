@@ -7,7 +7,7 @@ date: 2019-09-10
 draft: false
 tags:
 - Music Theory
-- Context Free Grammar
+- Theoretical Computer Science
 markup: mmark
 use: [math, sheetmusic]
 ---

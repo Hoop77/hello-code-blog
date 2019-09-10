@@ -67,15 +67,6 @@
     </item>
     
     <item>
-      <title>Context Free Grammar</title>
-      <link>https://hellocodeblog.com/tags/context-free-grammar/</link>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hellocodeblog.com/tags/context-free-grammar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Deep Learning</title>
       <link>https://hellocodeblog.com/tags/deep-learning/</link>
       <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
@@ -108,6 +99,15 @@
       <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hellocodeblog.com/tags/robotics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theoretical Computer Science</title>
+      <link>https://hellocodeblog.com/tags/theoretical-computer-science/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/theoretical-computer-science/</guid>
       <description></description>
     </item>
     
