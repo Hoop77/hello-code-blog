@@ -12,6 +12,11 @@
   </url>
   
   <url>
+    <loc>https://hellocodeblog.com/post/generating-harmony-using-context-free-grammar/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hellocodeblog.com/post/bachelor-thesis/</loc>
     <lastmod>2019-02-12T00:00:00+00:00</lastmod>
   </url>
@@ -73,8 +78,20 @@
   </url>
   
   <url>
+    <loc>https://hellocodeblog.com/tags/context-free-grammar/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hellocodeblog.com/tags/deep-learning/</loc>
     <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/music-theory/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -86,7 +103,7 @@
   
   <url>
     <loc>https://hellocodeblog.com/post/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

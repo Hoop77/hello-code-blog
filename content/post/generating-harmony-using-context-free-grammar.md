@@ -3,8 +3,8 @@ title: "Generating Harmony using Context-Free Grammar"
 description: "Explaining a Framework for Computational Music Generation"
 author:
   name: "Philipp Badenhoop"
-date: 2019-09-06
-draft: true
+date: 2019-09-10
+draft: false
 tags:
 - Music Theory
 - Context Free Grammar
@@ -21,16 +21,16 @@ Before diving into the main part, I provide a brief introduction of the necessar
 
 Playing the piano has always been one of my greatest passions.
 After playing classical music for several years, I fell in love with improvisation as well as playing songs in different arrangements and styles.
-However, compared to playing songs from scores, these skills require some knowledge of know the music actually works.
-At its core, we can divide music into three fundamental parts, namely **melody**, **rhythm** and **harmony**.
-While you surely have an intuitive understanding of what melody and rhythm is, you may not be quite familiar with the last one.
+However, compared to playing songs from scores, these skills require some knowledge about know music actually works.
+At its core, we can divide music into three fundamental concepts, namely **melody**, **rhythm** and **harmony**.
+While you surely have an intuitive understanding of what melody and rhythm are, you may not be quite familiar with the last one.
 We can basically put it like that: 
 Melody questions which note is played after the other while harmony describes which notes can be played simultaneously.
 In western music, harmony is represented as a sequence of chords which in turn are notes that are picked from a certain scale.
 
 The simplest form of a chord is the **triad** which consists of two stacked third intervals. 
-For example, the C major chord contains the notes *c*, *e* and *g* which are derived by going a major third (four semitones) from *c* to *e* and a minor third (three semitones) from *e* to *g*.
-Similarily, we can define the three remaining types of triads:
+For example, the C major chord contains the notes *c*, *e* and *g* which are derived by going a major third (four half steps) from *c* to *e* and a minor third (three half steps) from *e* to *g*.
+Similarily, we can define the three remaining triad types:
 
 {.table .table-striped}
 type | first interval | second interval | example notation | example notes
@@ -40,11 +40,13 @@ minor triad | minor third | major third | *Cm* | *c*, *e♭*, *g*
 diminished triad | minor third | minor third | *Cdim* | *c*, *e♭*, *g♭*
 augmented triad | major third | major third | *Caug* | *c*, *e*, *g♯*
 
+{{< audio src="audio/c-triads.mp3" >}}
 {{< sheetmusic src="sheetmusic/c-triads.xml" mode="simple" >}}
 
-Grab your instrument and play these chords to get a feeling of what they sound like.
+Have a listen to these chords to get a feeling of what they sound like.
 You might notice that the major triad sounds quite happy compared to the minor and the even darker diminished triad.
-We can extend this concept by stacking another third on top of these triads.
+
+We can extend our chords by stacking another third on top of these triads.
 The resulting four-note chords are then called **seventh chords**.
 At this point, all thirds we stack on top of the seventh chords are called **extensions** or **color tones**.
 The resulting **nineth**, **eleventh** and **thirteenth** chords are especially used in jazz music and may sound very spicy.
@@ -56,22 +58,22 @@ For example, a **major scale** has seven notes which stack up in the following (
 
 whole step -> whole step -> half step -> whole step -> whole step -> whole step -> half step
 
-In sheet music notation, the following represents a C major scale:
+In sheet music notation, the following represents the C major scale:
 
 {{< audio src="audio/c-major-scale.mp3" >}}
 {{< sheetmusic src="sheetmusic/c-major-scale.xml" mode="simple" >}}
 
-The **minor scale** follows a different pattern (starting from the root note):
+The **minor scale** follows a different pattern:
 
 whole step -> half step -> whole step -> whole step -> half step -> whole step -> whole step
 
-A C minor scale for example, looks like this:
+The C minor scale for example, looks like this:
 
 {{< audio src="audio/c-minor-scale.mp3" >}}
 {{< sheetmusic src="sheetmusic/c-minor-scale.xml" mode="simple" >}}
 
 Now, we can build so called **diatonic** chords from a scale.
-That means that we choose one of the notes in our scale as the root note and stack up thirds such that all resulting notes of our chord are also contained inside the scale.
+This means that we choose one of the notes in our scale as the root note and stack up thirds such that all resulting notes of our chord are also contained inside the scale.
 Let's say we're in the key of C major.
 A diatonic triad with the root *e* is a *Em* consisting of the notes *e*, *g* and *h*.
 Likewise, a diatonic triad with root *b* is a *Bdim* with notes *b*, *d* and *f*.
@@ -83,8 +85,8 @@ All diatonic triads over a C major scale with their respective degree are shown 
 {{< sheetmusic src="sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
 
 Finally, you can go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
-In fact, if you want to start a career as a pop musician, you may already learned enough theory to produce basic four-chord-songs played by famous interpreters such as Ed Sheeran.
-However, chord progressions in jazz and classical music are more complex and require a more thorough understanding of how the music was composed.
+In fact, if you want to start a career as a pop musician, diatonic harmonies are sufficient to produce basic four-chord-songs played by famous interpreters such as Ed Sheeran.
+However, chord progressions in jazz and classical music are more complex and require a more thorough understanding of how that music was composed.
 
 ## Functional Harmony
 
@@ -98,13 +100,14 @@ Let's take a look at a the following **vi-ii-V-I** progression in C major:
 {{< sheetmusic src="sheetmusic/6-2-5-1-triads.xml" mode="simple" >}}
 
 First of all, you may wonder that these chords doesn't look like those from above.
-That is because here we used **inversions** of the chords which means that we simply shifted some notes an octave up or down.
-So as long as the notes names remain the same, we still talk about the same chord.
+That is because in this example we used **inversions** of the chords which means that we simply shifted some notes an octave up or down.
+As long as the note names remain the same, we still talk about the same chord.
 
 When you heard the G chord, you probably already had some expectations of what comes next.
-Notice that the C chord at the end sounds very satisfying and stable, just like coming home.
+Notice that the C chord at the end sounds very satisfying and stable, like coming home.
+
 As we enter the field of jazz, it's common to use seventh chords all the time.
-Here is the same chord progression but with seventh chords instead of triads (notice that the functions remain the same):
+Here's the same chord progression but with seventh chords instead of triads (notice that the functions remain the same):
 
 {{< audio src="audio/6-2-5-1-sevenths.mp3" >}}
 {{< sheetmusic src="sheetmusic/6-2-5-1-sevenths.xml" mode="simple" >}}
@@ -122,13 +125,13 @@ Using this principle, we can approach the *Dm* with an *A7* dominant seventh cho
 
 Note that the *A7* is quite unusual because the *c♯* does not belong to the key of C major.
 If a chord contains a note that isn't part of the current key, it is called a **non-diatonic** chord.
-As you can hear, the *A7* leads more strongly to the *Dm7* than to the *Am7* did.
+As you can hear, the *A7* leads more strongly to the *Dm7* than the *Am7* did.
 Therefore, the *A7* is called a **secondary dominant** because it has a dominant function that leads to a chord which is not the tonic.
 
 Functional harmony can explain progressions quite well which stay in the same tonal center and exhibit only limited non-diatonic occurrences.
-However, in classical music and jazz, we often observe chord sequences that are very difficult to come up with by using this theory (key changes for example).
+However, in classical music and jazz, we often observe chord sequences that are very difficult to come up with by using this theory (local key changes for example).
 
-# A Generative Framework
+# The Framework
 
 Now, you're ready to learn about a very young theory invented by Martin Rohrmeier.
 Fortunately, I had the pleasure to meet him at a summer academy and I am excited to share what he taught at his lectures.
@@ -187,7 +190,7 @@ Next, we can recursively apply the **ii-V** preparation rule on the **V**:
 
 {{< figure src="/img/tree-3.png" title="Applying the ii-V preparation rule." >}}
 
-According to the principle of prolongation as discussed before, we can substitute the left **I** by the **vi**:
+Then, according to the principle of prolongation as discussed before, we can substitute the left **I** by the **vi**:
 
 {{< figure src="/img/tree-4.png" title="Substitution of the I by the vi." >}}
 
@@ -195,7 +198,7 @@ Finally, if we can derive the individual chords by passing the key as additional
 
 {{< figure src="/img/tree-5.png" title="Passing key information." >}}
 
-Passing key information can be useful if a progression modulates (moves to another key) but more on that later.
+Passing key information can be useful if a progression modulates (moves to another key).
 We may also leave out the key information if there doesn't occur any modulation as shown in the first tree.
 
 Let's sum up what we just did:
@@ -208,7 +211,7 @@ Our goal now is to create those derivations computationally by an algorithm.
 Therefore, we first have to formalize the preparation and prolongation rules.
 If you have any background in linguistic or theoretical computer science, you surely learned about **context-free grammar**.
 A context-free grammar contains a set of rules to generate the strings of a formal language.
-In our case, these strings are chord progressions.
+In our case, strings are chord progressions.
 A rule will have one of the following form:
 
 $$A \rightarrow B$$
@@ -229,7 +232,7 @@ Let's start with the prolongation rule:
 $$ I \rightarrow I\ I $$
 
 When viewed in comparison to the trees, we can interpret the left hand side of a rule as a parent node whose child nodes are defined by the right hand side of the rule.
-Therefore, a preparation rule looks like this:
+Therefore, the preparation rule where the **V** prepares the **I** looks like this:
 
 $$ I \rightarrow V\ I $$
 
@@ -247,7 +250,7 @@ $$ V \rightarrow G $$
 
 $$ vi \rightarrow Am $$
 
-That's it! Now, we can write a sequence of derivation using these rules to generate the **Am-Dm-G-C** progression:
+That's it! Now, we can write a sequence of derivations using these rules to generate the **Am-Dm-G-C** progression:
 
 $$ I \rightarrow I\ I $$
 
@@ -264,3 +267,18 @@ $$ Am\ \color{red}{ii}\ V\ I \rightarrow Am\ \color{red}{Dm}\ V\ I $$
 $$ Am\ Dm\ \color{red}{V}\ I \rightarrow Am\ Dm\ \color{red}{G}\ I $$
 
 $$ Am\ Dm\ G\ \color{red}{I} \rightarrow Am\ Dm\ G\ \color{red}{C} $$
+
+Of course, we need a couple more rules to express every preparation and prolongation rule in all keys. 
+So now we got a formal framework to generate musically coherent harmonic sequences.
+Even more interesting, we can take existing progressions and come up with derivations automatically using a **parser**.
+A parser is an algorithm, that takes grammar rules and a string (our progression) as input and outputs all possible derivation sequences of that string using the supplied grammar. 
+This means, we can automatically generate trees to analyse any given chord progression!
+In fact, such a parser is fairly easy to implement but we won't go into that for now.
+
+# Conclusion
+
+We only scratched the surface of it but I hope I could gave you a comprehensible introduction into Martin Rohrmeier's framework to generate and analyse harmonic sequences.
+Nevertheless, the presented method only produces coherent chord progressions.
+Generating entire pieces also involves incorporating melody and rhythm into the harmonic structure.
+We should also note that in music, played chords **may not** and **don't have to be** related to each other which Rohrmeier refers to as **improper harmony**!
+To conclude, I think the presented concepts are still quite impressive especially from a computer science perspective.

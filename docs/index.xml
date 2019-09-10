@@ -32,6 +32,16 @@ Philipp Badenhoop</description>
     </item>
     
     <item>
+      <title>Generating Harmony using Context-Free Grammar</title>
+      <link>https://hellocodeblog.com/post/generating-harmony-using-context-free-grammar/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/post/generating-harmony-using-context-free-grammar/</guid>
+      <description>Background In this post, I explain an exciting framework used to analyze and generate sequences of chords in musical pieces. Before diving into the main part, I provide a brief introduction of the necessary concepts in music and harmony theory.
+Music Theory - Chords and Scale Degrees Playing the piano has always been one of my greatest passions. After playing classical music for several years, I fell in love with improvisation as well as playing songs in different arrangements and styles.</description>
+    </item>
+    
+    <item>
       <title>Autonomous Racing with Deep Learning</title>
       <link>https://hellocodeblog.com/post/bachelor-thesis/</link>
       <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>

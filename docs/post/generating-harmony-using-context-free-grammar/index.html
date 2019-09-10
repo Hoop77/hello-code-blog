@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explaining a Framework for Computational Music Generation">
+    <meta name="author" content="Philipp Badenhoop">
+    <meta name="keywords" content="">
+
+
+    <title>Generating Harmony using Context-Free Grammar -- The computer science blog.</title>
+
+    
+
+    
+    <link href="https://hellocodeblog.com/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://hellocodeblog.com/css/hello-code-blog.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900" rel="stylesheet"> 
+
+    
+    
+    
+
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-expand-md navbar-custom">
+        <a class="navbar-brand" href="https://hellocodeblog.com">hello {code} blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fa fa-bars"></i></span>
+        </button>
+                   
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/post/">Archive</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/about/">About</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://hellocodeblog.com/contact/">Contact</a>
+                    </li>
+                    
+                  </ul>
+            </div>
+           
+
+    </nav>
+
+
+    
+    
+    <header class="intro-header">
+    
+      <div class="container">
+        <div class="row">
+           <div class="col-10 offset-1">
+             <div class="post-heading">
+                <h1>Generating Harmony using Context-Free Grammar</h1>
+                <div class="subheading syntax-color-comment">
+                  Explaining a Framework for Computational Music Generation
+                </div>
+                <div class="meta">
+                  <span class="syntax-color-doc">
+  
+  /** <br />
+  &nbsp;* <span class="syntax-color-highlight">\author</span> Philipp Badenhoop
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\date</span> <span>Tue, Sep 10, 2019</span>
+  <br />
+  &nbsp;* <span class="syntax-color-highlight">\tags</span> <span><a href="https://hellocodeblog.com/tags/music-theory" class="syntax-color-doc">music theory</a>, <a href="https://hellocodeblog.com/tags/context-free-grammar" class="syntax-color-doc">context free grammar</a></span>
+  <br />
+  &nbsp;*/
+</span>
+                </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </header>
+
+    
+    <article>
+        <div class="container">
+              <h1 id="background">Background</h1>
+
+<p>In this post, I explain an exciting framework used to analyze and generate sequences of chords in musical pieces.
+Before diving into the main part, I provide a brief introduction of the necessary concepts in music and harmony theory.</p>
+
+<h2 id="music-theory--chords-and-scale-degrees">Music Theory - Chords and Scale Degrees</h2>
+
+<p>Playing the piano has always been one of my greatest passions.
+After playing classical music for several years, I fell in love with improvisation as well as playing songs in different arrangements and styles.
+However, compared to playing songs from scores, these skills require some knowledge about know music actually works.
+At its core, we can divide music into three fundamental concepts, namely <strong>melody</strong>, <strong>rhythm</strong> and <strong>harmony</strong>.
+While you surely have an intuitive understanding of what melody and rhythm are, you may not be quite familiar with the last one.
+We can basically put it like that:
+Melody questions which note is played after the other while harmony describes which notes can be played simultaneously.
+In western music, harmony is represented as a sequence of chords which in turn are notes that are picked from a certain scale.</p>
+
+<p>The simplest form of a chord is the <strong>triad</strong> which consists of two stacked third intervals.
+For example, the C major chord contains the notes <em>c</em>, <em>e</em> and <em>g</em> which are derived by going a major third (four half steps) from <em>c</em> to <em>e</em> and a minor third (three half steps) from <em>e</em> to <em>g</em>.
+Similarily, we can define the three remaining triad types:</p>
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>type</th>
+<th>first interval</th>
+<th>second interval</th>
+<th>example notation</th>
+<th>example notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>major triad</td>
+<td>major third</td>
+<td>minor third</td>
+<td><em>C</em></td>
+<td><em>c</em>, <em>e</em>, <em>g</em></td>
+</tr>
+
+<tr>
+<td>minor triad</td>
+<td>minor third</td>
+<td>major third</td>
+<td><em>Cm</em></td>
+<td><em>c</em>, <em>e♭</em>, <em>g</em></td>
+</tr>
+
+<tr>
+<td>diminished triad</td>
+<td>minor third</td>
+<td>minor third</td>
+<td><em>Cdim</em></td>
+<td><em>c</em>, <em>e♭</em>, <em>g♭</em></td>
+</tr>
+
+<tr>
+<td>augmented triad</td>
+<td>major third</td>
+<td>major third</td>
+<td><em>Caug</em></td>
+<td><em>c</em>, <em>e</em>, <em>g♯</em></td>
+</tr>
+</tbody>
+</table>
+
+<p><audio controls>
+  <source src="https://hellocodeblog.comaudio/c-triads.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div class="sheetmusic" data-src="https://hellocodeblog.comsheetmusic/c-triads.xml" data-mode="simple"></div></p>
+
+<p>Have a listen to these chords to get a feeling of what they sound like.
+You might notice that the major triad sounds quite happy compared to the minor and the even darker diminished triad.</p>
+
+<p>We can extend our chords by stacking another third on top of these triads.
+The resulting four-note chords are then called <strong>seventh chords</strong>.
+At this point, all thirds we stack on top of the seventh chords are called <strong>extensions</strong> or <strong>color tones</strong>.
+The resulting <strong>nineth</strong>, <strong>eleventh</strong> and <strong>thirteenth</strong> chords are especially used in jazz music and may sound very spicy.</p>
+
+<p>The whole point of the theory of harmony is to put chords into a musical context.
+Most commonly in western music, this context is induced by the major or minor scale.
+A scale is just a set of notes that follow a specific interval pattern.
+For example, a <strong>major scale</strong> has seven notes which stack up in the following (repeating) interval sequence beginning from the root note:</p>
+
+<p>whole step -&gt; whole step -&gt; half step -&gt; whole step -&gt; whole step -&gt; whole step -&gt; half step</p>
+
+<p>In sheet music notation, the following represents the C major scale:</p>
+
+<p><audio controls>
+  <source src="https://hellocodeblog.comaudio/c-major-scale.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div class="sheetmusic" data-src="https://hellocodeblog.comsheetmusic/c-major-scale.xml" data-mode="simple"></div></p>
+
+<p>The <strong>minor scale</strong> follows a different pattern:</p>
+
+<p>whole step -&gt; half step -&gt; whole step -&gt; whole step -&gt; half step -&gt; whole step -&gt; whole step</p>
+
+<p>The C minor scale for example, looks like this:</p>
+
+<p><audio controls>
+  <source src="https://hellocodeblog.comaudio/c-minor-scale.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div class="sheetmusic" data-src="https://hellocodeblog.comsheetmusic/c-minor-scale.xml" data-mode="simple"></div></p>
+
+<p>Now, we can build so called <strong>diatonic</strong> chords from a scale.
+This means that we choose one of the notes in our scale as the root note and stack up thirds such that all resulting notes of our chord are also contained inside the scale.
+Let's say we're in the key of C major.
+A diatonic triad with the root <em>e</em> is a <em>Em</em> consisting of the notes <em>e</em>, <em>g</em> and <em>h</em>.
+Likewise, a diatonic triad with root <em>b</em> is a <em>Bdim</em> with notes <em>b</em>, <em>d</em> and <em>f</em>.
+The root note of a particular diatonic chord indicates its <strong>degree</strong> which we denote with roman numbers.
+For example, any chord that builds on F has degree IV because its the fourth chord in the C major scale.
+By convention, upper case roman numbers refer to major chords, while minor and diminished chords use lower case roman numbers.
+All diatonic triads over a C major scale with their respective degree are shown below:</p>
+
+<div class="sheetmusic" data-src="https://hellocodeblog.comsheetmusic/c-major-scale-triads.xml" data-mode="simple"></div>
+
+<p>Finally, you can go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
+In fact, if you want to start a career as a pop musician, diatonic harmonies are sufficient to produce basic four-chord-songs played by famous interpreters such as Ed Sheeran.
+However, chord progressions in jazz and classical music are more complex and require a more thorough understanding of how that music was composed.</p>
+
+<h2 id="functional-harmony">Functional Harmony</h2>
+
+<p>In the theory of <strong>Functional Harmony</strong>, each chord has a certain purpose or <strong>function</strong> in relation to a tonal center.
+In the context of a major or minor scale, the tonal center (also called the <strong>tonic</strong>) is the first degree of our scale.
+This starts to make sense when we introduce the <strong>dominant</strong> function, defined as the fifth scale degree.
+When played in a chord progression, the dominant wants to resolve to the tonic.
+Let's take a look at a the following <strong>vi-ii-V-I</strong> progression in C major:</p>
+
+<p><audio controls>
+  <source src="https://hellocodeblog.comaudio/6-2-5-1-triads.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div class="sheetmusic" data-src="https://hellocodeblog.comsheetmusic/6-2-5-1-triads.xml" data-mode="simple"></div></p>
+
+<p>First of all, you may wonder that these chords doesn't look like those from above.
+That is because in this example we used <strong>inversions</strong> of the chords which means that we simply shifted some notes an octave up or down.
+As long as the note names remain the same, we still talk about the same chord.</p>
+
+<p>When you heard the G chord, you probably already had some expectations of what comes next.
+Notice that the C chord at the end sounds very satisfying and stable, like coming home.</p>
+
+<p>As we enter the field of jazz, it's common to use seventh chords all the time.
+Here's the same chord progression but with seventh chords instead of triads (notice that the functions remain the same):</p>
+
+<p><audio controls>
+  <source src="https://hellocodeblog.comaudio/6-2-5-1-sevenths.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div class="sheetmusic" data-src="https://hellocodeblog.comsheetmusic/6-2-5-1-sevenths.xml" data-mode="simple"></div></p>
+
+<p>In addition to that, the <strong>IV</strong> and the <strong>ii</strong> serve a <strong>predominant</strong> (also called subdominant) function which prepares the dominant (the <em>Dm7</em> in this example).
+If you play jazz, you'll definitely stumble upon the omnipresent <strong>ii-V-I</strong> progression.</p>
+
+<p>It turns out that we can actually approach any chord from a fifth above with a <strong>dominant seventh chord</strong>.
+A dominant seventh chord is stacked up of a major third, a minor third and another minor third.
+The <em>G7</em> in the progression is a dominant seventh chord for example.
+Using this principle, we can approach the <em>Dm</em> with an <em>A7</em> dominant seventh chord instead of an <em>Am7</em> as shown in the following example:</p>
+
+<p><audio controls>
+  <source src="https://hellocodeblog.comaudio/6dom-2-5-1-cadence-sevenths.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div class="sheetmusic" data-src="https://hellocodeblog.comsheetmusic/6dom-2-5-1-cadence-sevenths.xml" data-mode="simple"></div></p>
+
+<p>Note that the <em>A7</em> is quite unusual because the <em>c♯</em> does not belong to the key of C major.
+If a chord contains a note that isn't part of the current key, it is called a <strong>non-diatonic</strong> chord.
+As you can hear, the <em>A7</em> leads more strongly to the <em>Dm7</em> than the <em>Am7</em> did.
+Therefore, the <em>A7</em> is called a <strong>secondary dominant</strong> because it has a dominant function that leads to a chord which is not the tonic.</p>
+
+<p>Functional harmony can explain progressions quite well which stay in the same tonal center and exhibit only limited non-diatonic occurrences.
+However, in classical music and jazz, we often observe chord sequences that are very difficult to come up with by using this theory (local key changes for example).</p>
+
+<h1 id="the-framework">The Framework</h1>
+
+<p>Now, you're ready to learn about a very young theory invented by Martin Rohrmeier.
+Fortunately, I had the pleasure to meet him at a summer academy and I am excited to share what he taught at his lectures.
+In his theory, he generalizes the concepts of functional harmony to two core relations between chords, namely <strong>preparation</strong> and <strong>prolongation</strong>.</p>
+
+<h3 id="preparations">Preparations</h3>
+
+<p>In functional harmony, we said that a dominant chord resolves to the chord a fifth below.
+This is clearly one but not the only relation between two chords where a chord prepares another one.
+Other prepartory dependencies are for example:</p>
+
+<ul>
+<li><strong>V-I</strong></li>
+<li><strong>ii-V</strong></li>
+<li><strong>iii-VI</strong></li>
+<li><strong>vii-I</strong></li>
+<li><strong>IV-V</strong></li>
+</ul>
+
+<p>The reason why we put them into a single category is because they share a common <strong>interpretation</strong> which is a goal-directed motion and the build-up and release of musical tension.</p>
+
+<h3 id="prolongations">Prolongations</h3>
+
+<p>The second core relation between chords extends or <strong>prolongs</strong> the span of a given chord.
+The simplest form of prolonging a chord is by repeating itself but it could also be prolonged by its relative.
+Here are some examples:</p>
+
+<ul>
+<li><strong>I-I</strong></li>
+<li><strong>V-V</strong></li>
+<li><strong>vi-vi</strong></li>
+<li><strong>I-vi</strong> (prolonged by its relative)</li>
+</ul>
+
+<p>Just like preparation relations, all prolongation rules have a common interpretation which is the temporal extension of a chord.</p>
+
+<h2 id="recursive-derivation-of-harmonic-sequences">Recursive Derivation of Harmonic Sequences</h2>
+
+<p>The core idea of Rohrmeier's framework is to use the rules of preparation and prolongation to create recursive derivations of harmonic sequences.
+In the following, we will learn how to derive the previous <strong>Am-Dm-G-C</strong> progression by recursively applying preparation and prolongation rules.
+An neat way to illustrate recursive derivations is to use trees.
+By doing so, a possible way to come up with the progression in question using Rohrmeier's Framework would look like this:</p>
+
+<figure>
+    <img src="https://hellocodeblog.com/img/tree-6-2-5-1-triads.png"/> <figcaption>
+            <h4>Recursive derivation of the Am-Dm-G-C progression.</h4>
+        </figcaption>
+</figure>
+
+
+<p>When reading the leaves from left to right, we get <em>Am-Dm-G-C</em>. So how does this work?
+Every derivation starts by branching out of the tonic.
+An interesting observation by Rohrmeier is that staying in the same key is basically a prolongation of the <strong>I</strong>.
+Put differently, a progression that remains in a certain key is a temporal expansion of the tonic.
+By doing so, we can depict a prolongation of the <strong>I</strong> as follows:</p>
+
+<figure>
+    <img src="https://hellocodeblog.com/img/tree-1.png"/> <figcaption>
+            <h4>The I-I prolongation rule applied on the root node of the tree.</h4>
+        </figcaption>
+</figure>
+
+
+<p>You might already see that the G looks like a preparation of the C.
+Given that C is our <strong>I</strong>, we can apply the <strong>V-I</strong> preparation rule on the right branch:</p>
+
+<figure>
+    <img src="https://hellocodeblog.com/img/tree-2.png"/> <figcaption>
+            <h4>The V-I preparation rule applied on the right branch.</h4>
+        </figcaption>
+</figure>
+
+
+<p>Next, we can recursively apply the <strong>ii-V</strong> preparation rule on the <strong>V</strong>:</p>
+
+<figure>
+    <img src="https://hellocodeblog.com/img/tree-3.png"/> <figcaption>
+            <h4>Applying the ii-V preparation rule.</h4>
+        </figcaption>
+</figure>
+
+
+<p>Then, according to the principle of prolongation as discussed before, we can substitute the left <strong>I</strong> by the <strong>vi</strong>:</p>
+
+<figure>
+    <img src="https://hellocodeblog.com/img/tree-4.png"/> <figcaption>
+            <h4>Substitution of the I by the vi.</h4>
+        </figcaption>
+</figure>
+
+
+<p>Finally, if we can derive the individual chords by passing the key as additional information to the nodes:</p>
+
+<figure>
+    <img src="https://hellocodeblog.com/img/tree-5.png"/> <figcaption>
+            <h4>Passing key information.</h4>
+        </figcaption>
+</figure>
+
+
+<p>Passing key information can be useful if a progression modulates (moves to another key).
+We may also leave out the key information if there doesn't occur any modulation as shown in the first tree.</p>
+
+<p>Let's sum up what we just did:
+We introduced a method of expressing harmonic relations in a hierarchical manner by recursively applying only two core operations (preparation and prolongation).
+Then we derived the diatonic chord sequence <em>Am-Dm-G-C</em> using these rules in a tree-style fashion.</p>
+
+<h2 id="expressing-harmonic-relations-as-contextfree-grammar-rules">Expressing Harmonic Relations as Context-Free Grammar Rules</h2>
+
+<p>Our goal now is to create those derivations computationally by an algorithm.
+Therefore, we first have to formalize the preparation and prolongation rules.
+If you have any background in linguistic or theoretical computer science, you surely learned about <strong>context-free grammar</strong>.
+A context-free grammar contains a set of rules to generate the strings of a formal language.
+In our case, strings are chord progressions.
+A rule will have one of the following form:</p>
+
+<p><span  class="math">\[A \rightarrow B\]</span></p>
+
+<p><span  class="math">\[A \rightarrow B\ C\]</span></p>
+
+<p><span  class="math">\[A \rightarrow a\]</span></p>
+
+<p>These rules mean that the symbol on the left is replaced by what's on the right hand side.
+There are two kinds of symbols: <strong>terminal</strong> and <strong>non-terminals</strong>.
+Only non-terminals can appear on the left side, meaning that a terminal cannot be further replaced anymore.
+In this example, <em>a</em> represents a terminal while <em>A</em>, <em>B</em> and <em>C</em> represent non-terminals.</p>
+
+<p>Ok, enough theory - let's see how we can come up with context-free grammar rules which resemble preparation and prolongation rules.
+We will now define enough rules to derive the <em>Am-Dm-G-C</em> again.
+Let's start with the prolongation rule:</p>
+
+<p><span  class="math">\[ I \rightarrow I\ I \]</span></p>
+
+<p>When viewed in comparison to the trees, we can interpret the left hand side of a rule as a parent node whose child nodes are defined by the right hand side of the rule.
+Therefore, the preparation rule where the <strong>V</strong> prepares the <strong>I</strong> looks like this:</p>
+
+<p><span  class="math">\[ I \rightarrow V\ I \]</span></p>
+
+<p>Next, the <strong>I-vi</strong> substitution is defined as:</p>
+
+<p><span  class="math">\[ I \rightarrow vi \]</span></p>
+
+<p>Finally, we map the scale degrees to chord symbols which are our terminal symbols:</p>
+
+<p><span  class="math">\[ I \rightarrow C \]</span></p>
+
+<p><span  class="math">\[ ii \rightarrow Dm \]</span></p>
+
+<p><span  class="math">\[ V \rightarrow G \]</span></p>
+
+<p><span  class="math">\[ vi \rightarrow Am \]</span></p>
+
+<p>That's it! Now, we can write a sequence of derivations using these rules to generate the <strong>Am-Dm-G-C</strong> progression:</p>
+
+<p><span  class="math">\[ I \rightarrow I\ I \]</span></p>
+
+<p><span  class="math">\[ I\ \color{red}{I} \rightarrow I\ \color{red}{V\ I} \]</span></p>
+
+<p><span  class="math">\[ I\ \color{red}{V}\ I \rightarrow I\ \color{red}{ii\ V}\ I \]</span></p>
+
+<p><span  class="math">\[ \color{red}{I}\ ii\ V\ I \rightarrow \color{red}{vi}\ ii\ V\ I \]</span></p>
+
+<p><span  class="math">\[ \color{red}{vi}\ ii\ V\ I \rightarrow \color{red}{Am}\ ii\ V\ I \]</span></p>
+
+<p><span  class="math">\[ Am\ \color{red}{ii}\ V\ I \rightarrow Am\ \color{red}{Dm}\ V\ I \]</span></p>
+
+<p><span  class="math">\[ Am\ Dm\ \color{red}{V}\ I \rightarrow Am\ Dm\ \color{red}{G}\ I \]</span></p>
+
+<p><span  class="math">\[ Am\ Dm\ G\ \color{red}{I} \rightarrow Am\ Dm\ G\ \color{red}{C} \]</span></p>
+
+<p>Of course, we need a couple more rules to express every preparation and prolongation rule in all keys.
+So now we got a formal framework to generate musically coherent harmonic sequences.
+Even more interesting, we can take existing progressions and come up with derivations automatically using a <strong>parser</strong>.
+A parser is an algorithm, that takes grammar rules and a string (our progression) as input and outputs all possible derivation sequences of that string using the supplied grammar.
+This means, we can automatically generate trees to analyse any given chord progression!
+In fact, such a parser is fairly easy to implement but we won't go into that for now.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>We only scratched the surface of it but I hope I could gave you a comprehensible introduction into Martin Rohrmeier's framework to generate and analyse harmonic sequences.
+Nevertheless, the presented method only produces coherent chord progressions.
+Generating entire pieces also involves incorporating melody and rhythm into the harmonic structure.
+We should also note that in music, played chords <strong>may not</strong> and <strong>don't have to be</strong> related to each other which Rohrmeier refers to as <strong>improper harmony</strong>!
+To conclude, I think the presented concepts are still quite impressive especially from a computer science perspective.</p>
+
+              
+
+        </div>
+    </article>
+
+    <hr>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                  <ul class="list-inline text-center">
+                    
+                      <li class="list-inline-item">
+                        <a href="mailto:philipp.badenhoop@hellocodeblog.com">
+                          <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                          </span>
+                        </a>
+                      </li>
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                      <a href="https://twitter.com/PBadenhoop">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    <li class="list-inline-item">
+                      <a href="https://github.com/Badenhoop">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                  <p><a href="https://hellocodeblog.com/cookie-preferences" id="changeCookiePreferences" class="text-muted">Cookie Preferences</a></p>
+                  <p class="copyright text-muted">© 2019 by Philipp Badenhoop. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://hellocodeblog.comjs/jquery.min.js"></script>
+
+    
+    <script src="https://hellocodeblog.comjs/bootstrap.min.js"></script>
+
+    
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    
+
+    
+    
+    <script src='https://hellocodeblog.comjs/opensheetmusicdisplay.min.js'></script>
+    <script src="https://hellocodeblog.comjs/sheetmusic.js"></script>
+    
+
+    
+    <script src="https://hellocodeblog.comjs/hello-code-blog.js"></script>
+
+    
+    <script>
+      
+      COOKIE_CONSENT = '\x3cdiv class=\x22cookie-consent outer d-flex justify-content-center align-items-center\x22\x3e\n  \x3cdiv class=\x22inner\x22\x3e\n    \x3ch1\x3eWe use cookies\x3c\/h1\x3e\n    \x3cp\x3eWe use cookies to analyze our website traffic. By browsing our website, you consent to our use of cookies. For more informations, please read our \x3ca href=\x22https:\/\/hellocodeblog.com\/privacy-policy\x22 target=\x22_blank\x22\x3eprivacy policy\x3c\/a\x3e\x3c\/p\x3e\n    \x3cul class=\x22list-inline\x22\x3e\n      \x3cli class=\x22list-inline-item\x22\x3e\x3cbutton class=\x22btn btn-warning\x22 onclick=\x22enableCookieUsage();hideCookieConsent();\x22\x3eAccept\x3c\/button\x3e\x3c\/li\x3e\n      \x3cli class=\x22list-inline-item\x22\x3e\x3cbutton class=\x22btn btn-secondary\x22 onclick=\x22disableCookieUsage();hideCookieConsent();\x22\x3eCancel\x3c\/button\x3e\x3c\/li\x3e\n    \x3c\/ul\x3e\n  \x3c\/div\x3e\n\x3c\/div\x3e'
+    </script>
+    <script src="https://hellocodeblog.comjs/cookie.js"></script>
+
+</body>
+
+</html>
+
