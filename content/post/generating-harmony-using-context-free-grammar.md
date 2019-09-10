@@ -1,5 +1,5 @@
 ---
-title: "Generating Harmony using Context Free Grammar"
+title: "Generating Harmony using Context-Free Grammar"
 description: "Explaining a Framework for Computational Music Generation"
 author:
   name: "Philipp Badenhoop"
@@ -202,5 +202,65 @@ Let's sum up what we just did:
 We introduced a method of expressing harmonic relations in a hierarchical manner by recursively applying only two core operations (preparation and prolongation). 
 Then we derived the diatonic chord sequence *Am-Dm-G-C* using these rules in a tree-style fashion.
 
-## Expressing Harmonic Relations as Context Free Grammar Rules
+## Expressing Harmonic Relations as Context-Free Grammar Rules
 
+Our goal now is to create those derivations computationally by an algorithm.
+Therefore, we first have to formalize the preparation and prolongation rules.
+If you have any background in linguistic or theoretical computer science, you surely learned about **context-free grammar**.
+A context-free grammar contains a set of rules to generate the strings of a formal language.
+In our case, these strings are chord progressions.
+A rule will have one of the following form:
+
+$$A \rightarrow B$$
+
+$$A \rightarrow B\ C$$
+
+$$A \rightarrow a$$
+
+These rules mean that the symbol on the left is replaced by what's on the right hand side.
+There are two kinds of symbols: **terminal** and **non-terminals**.
+Only non-terminals can appear on the left side, meaning that a terminal cannot be further replaced anymore.
+In this example, *a* represents a terminal while *A*, *B* and *C* represent non-terminals.
+
+Ok, enough theory - let's see how we can come up with context-free grammar rules which resemble preparation and prolongation rules.
+We will now define enough rules to derive the *Am-Dm-G-C* again.
+Let's start with the prolongation rule:
+
+$$ I \rightarrow I\ I $$
+
+When viewed in comparison to the trees, we can interpret the left hand side of a rule as a parent node whose child nodes are defined by the right hand side of the rule.
+Therefore, a preparation rule looks like this:
+
+$$ I \rightarrow V\ I $$
+
+Next, the **I-vi** substitution is defined as:
+
+$$ I \rightarrow vi $$
+
+Finally, we map the scale degrees to chord symbols which are our terminal symbols:
+
+$$ I \rightarrow C $$
+
+$$ ii \rightarrow Dm $$
+
+$$ V \rightarrow G $$
+
+$$ vi \rightarrow Am $$
+
+That's it! Now, we can write a sequence of derivation using these rules to generate the **Am-Dm-G-C** progression:
+
+$$ I \rightarrow I\ I $$
+
+$$ I\ \color{red}{I} \rightarrow I\ \color{red}{V\ I} $$
+
+$$ I\ \color{red}{V}\ I \rightarrow I\ \color{red}{ii\ V}\ I $$
+
+$$ \color{red}{I}\ ii\ V\ I \rightarrow \color{red}{vi}\ ii\ V\ I $$
+
+$$ \color{red}{vi}\ ii\ V\ I \rightarrow \color{red}{Am}\ ii\ V\ I $$
+
+$$ Am\ \color{red}{ii}\ V\ I \rightarrow Am\ \color{red}{Dm}\ V\ I $$
+
+$$ Am\ Dm\ \color{red}{V}\ I \rightarrow Am\ Dm\ \color{red}{G}\ I $$
+
+$$ Am\ Dm\ G\ \color{red}{I} \rightarrow Am\ Dm\ G\ \color{red}{C} $$
