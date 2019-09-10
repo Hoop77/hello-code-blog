@@ -41,8 +41,8 @@ minor triad | minor third | major third | *Cm* | *c*, *e♭*, *g*
 diminished triad | minor third | minor third | *Cdim* | *c*, *e♭*, *g♭*
 augmented triad | major third | major third | *Caug* | *c*, *e*, *g♯*
 
-{{< audio src="audio/c-triads.mp3" >}}
-{{< sheetmusic src="sheetmusic/c-triads.xml" mode="simple" >}}
+{{< audio src="/audio/c-triads.mp3" >}}
+{{< sheetmusic src="/sheetmusic/c-triads.xml" mode="simple" >}}
 
 Have a listen to these chords to get a feeling of what they sound like.
 You might notice that the major triad sounds quite happy compared to the minor and the even darker diminished triad.
@@ -61,8 +61,8 @@ whole step -> whole step -> half step -> whole step -> whole step -> whole step 
 
 In sheet music notation, the following represents the C major scale:
 
-{{< audio src="audio/c-major-scale.mp3" >}}
-{{< sheetmusic src="sheetmusic/c-major-scale.xml" mode="simple" >}}
+{{< audio src="/audio/c-major-scale.mp3" >}}
+{{< sheetmusic src="/sheetmusic/c-major-scale.xml" mode="simple" >}}
 
 The **minor scale** follows a different pattern:
 
@@ -70,8 +70,8 @@ whole step -> half step -> whole step -> whole step -> half step -> whole step -
 
 The C minor scale for example, looks like this:
 
-{{< audio src="audio/c-minor-scale.mp3" >}}
-{{< sheetmusic src="sheetmusic/c-minor-scale.xml" mode="simple" >}}
+{{< audio src="/audio/c-minor-scale.mp3" >}}
+{{< sheetmusic src="/sheetmusic/c-minor-scale.xml" mode="simple" >}}
 
 Now, we can build so called **diatonic** chords from a scale.
 This means that we choose one of the notes in our scale as the root note and stack up thirds such that all resulting notes of our chord are also contained inside the scale.
@@ -83,7 +83,7 @@ For example, any chord that builds on F has degree IV because its the fourth cho
 By convention, upper case roman numbers refer to major chords, while minor and diminished chords use lower case roman numbers.
 All diatonic triads over a C major scale with their respective degree are shown below:
 
-{{< sheetmusic src="sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
+{{< sheetmusic src="/sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
 
 Finally, you can go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
 In fact, if you want to start a career as a pop musician, diatonic harmonies are sufficient to produce basic four-chord-songs played by famous interpreters such as Ed Sheeran.
@@ -97,8 +97,8 @@ This starts to make sense when we introduce the **dominant** function, defined a
 When played in a chord progression, the dominant wants to resolve to the tonic.
 Let's take a look at a the following **vi-ii-V-I** progression in C major:
 
-{{< audio src="audio/6-2-5-1-triads.mp3" >}}
-{{< sheetmusic src="sheetmusic/6-2-5-1-triads.xml" mode="simple" >}}
+{{< audio src="/audio/6-2-5-1-triads.mp3" >}}
+{{< sheetmusic src="/sheetmusic/6-2-5-1-triads.xml" mode="simple" >}}
 
 First of all, you may wonder that these chords doesn't look like those from above.
 That is because in this example we used **inversions** of the chords which means that we simply shifted some notes an octave up or down.
@@ -110,8 +110,8 @@ Notice that the C chord at the end sounds very satisfying and stable, like comin
 As we enter the field of jazz, it's common to use seventh chords all the time.
 Here's the same chord progression but with seventh chords instead of triads (notice that the functions remain the same):
 
-{{< audio src="audio/6-2-5-1-sevenths.mp3" >}}
-{{< sheetmusic src="sheetmusic/6-2-5-1-sevenths.xml" mode="simple" >}}
+{{< audio src="/audio/6-2-5-1-sevenths.mp3" >}}
+{{< sheetmusic src="/sheetmusic/6-2-5-1-sevenths.xml" mode="simple" >}}
 
 In addition to that, the **IV** and the **ii** serve a **predominant** (also called subdominant) function which prepares the dominant (the *Dm7* in this example).
 If you play jazz, you'll definitely stumble upon the omnipresent **ii-V-I** progression.
@@ -121,8 +121,8 @@ A dominant seventh chord is stacked up of a major third, a minor third and anoth
 The *G7* in the progression is a dominant seventh chord for example.
 Using this principle, we can approach the *Dm* with an *A7* dominant seventh chord instead of an *Am7* as shown in the following example:
 
-{{< audio src="audio/6dom-2-5-1-cadence-sevenths.mp3" >}}
-{{< sheetmusic src="sheetmusic/6dom-2-5-1-cadence-sevenths.xml" mode="simple" >}}
+{{< audio src="/audio/6dom-2-5-1-cadence-sevenths.mp3" >}}
+{{< sheetmusic src="/sheetmusic/6dom-2-5-1-cadence-sevenths.xml" mode="simple" >}}
 
 Note that the *A7* is quite unusual because the *c♯* does not belong to the key of C major.
 If a chord contains a note that isn't part of the current key, it is called a **non-diatonic** chord.
