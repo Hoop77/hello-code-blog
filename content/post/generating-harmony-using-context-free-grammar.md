@@ -155,13 +155,16 @@ The reason why we put them into a single category is because they share a common
 ### Prolongations
 
 The second core relation between chords extends or **prolongs** the span of a given chord.
-The simplest form of prolonging a chord is by repeating itself but it could also be prolonged by its relative.
-Here are some examples:
+The simplest form of prolonging a chord is by repeating itself but it could also be prolonged by its **relative**.
+For any major chord, its relative is the minor chord three half steps below its root. 
+Likewise, for any minor chord, its relative is the major chord three half steps above its root.
+Here are some example prolongation rules:
 
 * **I-I**
 * **V-V**
 * **vi-vi**
-* **I-vi** (prolonged by its relative)
+* **I-vi** (major chord prolonged by its relative)
+* **vi-I** (minor chord prolonged by its relative)
 
 Just like preparation relations, all prolongation rules have a common interpretation which is the temporal extension of a chord.
 
@@ -213,7 +216,7 @@ Therefore, we first have to formalize the preparation and prolongation rules.
 If you have any background in linguistic or theoretical computer science, you surely learned about **context-free grammar**.
 A context-free grammar contains a set of rules to generate the strings of a formal language.
 In our case, strings are chord progressions.
-A rule will have one of the following form:
+A rule will have one of the following forms:
 
 $$A \rightarrow B$$
 
@@ -279,7 +282,8 @@ In fact, such a parser is fairly easy to implement but we won't go into that for
 # Conclusion
 
 We only scratched the surface of it but I hope I could gave you a comprehensible introduction into Martin Rohrmeier's framework to generate and analyse harmonic sequences.
-Nevertheless, the presented method only produces coherent chord progressions.
+For more advanced pieces, additional rules will be required which we haven't covered yet (for example substitution and modulation rules).
+In addition, one thing to keep in mind is that the presented method only produces coherent chord progressions.
 Generating entire pieces also involves incorporating melody and rhythm into the harmonic structure.
 We should also note that in music, played chords **may not** and **don't have to be** related to each other which Rohrmeier refers to as **improper harmony**!
 To conclude, I think the presented concepts are still quite impressive especially from a computer science perspective.
