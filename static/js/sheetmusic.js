@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
     $('.sheetmusic').each(function(idx, el) {
-        var file = $(el).data('file')
+        var file = $(el).data('src')
         var mode = $(el).data('mode')
         var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(el);
         if (mode === 'simple')

@@ -40,7 +40,7 @@ minor triad | minor third | major third | *Cm* | *c*, *e♭*, *g*
 diminished triad | minor third | minor third | *Cdim* | *c*, *e♭*, *g♭*
 augmented triad | major third | major third | *Caug* | *c*, *e*, *g♯*
 
-{{< sheetmusic file="sheetmusic/c-triads.xml" mode="simple" >}}
+{{< sheetmusic src="sheetmusic/c-triads.xml" mode="simple" >}}
 
 Grab your instrument and play these chords to get a feeling of what they sound like.
 You might notice that the major triad sounds quite happy compared to the minor and the even darker diminished triad.
@@ -58,8 +58,8 @@ whole step -> whole step -> half step -> whole step -> whole step -> whole step 
 
 In sheet music notation, the following represents a C major scale:
 
-{{< audio file="audio/c-major-scale.mp3" >}}
-{{< sheetmusic file="sheetmusic/c-major-scale.xml" mode="simple" >}}
+{{< audio src="audio/c-major-scale.mp3" >}}
+{{< sheetmusic src="sheetmusic/c-major-scale.xml" mode="simple" >}}
 
 The **minor scale** follows a different pattern (starting from the root note):
 
@@ -67,8 +67,8 @@ whole step -> half step -> whole step -> whole step -> half step -> whole step -
 
 A C minor scale for example, looks like this:
 
-{{< audio file="audio/c-minor-scale.mp3" >}}
-{{< sheetmusic file="sheetmusic/c-minor-scale.xml" mode="simple" >}}
+{{< audio src="audio/c-minor-scale.mp3" >}}
+{{< sheetmusic src="sheetmusic/c-minor-scale.xml" mode="simple" >}}
 
 Now, we can build so called **diatonic** chords from a scale.
 That means that we choose one of the notes in our scale as the root note and stack up thirds such that all resulting notes of our chord are also contained inside the scale.
@@ -80,7 +80,7 @@ For example, any chord that builds on F has degree IV because its the fourth cho
 By convention, upper case roman numbers refer to major chords, while minor and diminished chords use lower case roman numbers.
 All diatonic triads over a C major scale with their respective degree are shown below:
 
-{{< sheetmusic file="sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
+{{< sheetmusic src="sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
 
 Finally, you can go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
 In fact, if you want to start a career as a pop musician, you may already learned enough theory to produce basic four-chord-songs played by famous interpreters such as Ed Sheeran.
@@ -92,10 +92,10 @@ In the theory of **Functional Harmony**, each chord has a certain purpose or **f
 In the context of a major or minor scale, the tonal center (also called the **tonic**) is the first degree of our scale.
 This starts to make sense when we introduce the **dominant** function, defined as the fifth scale degree.
 When played in a chord progression, the dominant wants to resolve to the tonic.
-Let's take a look at a the following vi-ii-V-I progression in C major:
+Let's take a look at a the following **vi-ii-V-I** progression in C major:
 
-{{< audio file="audio/6-2-5-1-cadence-triads.mp3" >}}
-{{< sheetmusic file="sheetmusic/6-2-5-1-cadence-triads.xml" mode="simple" >}}
+{{< audio src="audio/6-2-5-1-triads.mp3" >}}
+{{< sheetmusic src="sheetmusic/6-2-5-1-triads.xml" mode="simple" >}}
 
 First of all, you may wonder that these chords doesn't look like those from above.
 That is because here we used **inversions** of the chords which means that we simply shifted some notes an octave up or down.
@@ -106,19 +106,19 @@ Notice that the C chord at the end sounds very satisfying and stable, just like 
 As we enter the field of jazz, it's common to use seventh chords all the time.
 Here is the same chord progression but with seventh chords instead of triads (notice that the functions remain the same):
 
-{{< audio file="audio/6-2-5-1-cadence-sevenths.mp3" >}}
-{{< sheetmusic file="sheetmusic/6-2-5-1-cadence-sevenths.xml" mode="simple" >}}
+{{< audio src="audio/6-2-5-1-sevenths.mp3" >}}
+{{< sheetmusic src="sheetmusic/6-2-5-1-sevenths.xml" mode="simple" >}}
 
-In addition to that, the IV and the ii serve a **predominant** (also called subdominant) function which prepares the dominant (the *Dm7* in this example).
-If you play jazz, you'll definitely stumble upon the omnipresent ii-V-I progression.
+In addition to that, the **IV** and the **ii** serve a **predominant** (also called subdominant) function which prepares the dominant (the *Dm7* in this example).
+If you play jazz, you'll definitely stumble upon the omnipresent **ii-V-I** progression.
 
 It turns out that we can actually approach any chord from a fifth above with a **dominant seventh chord**.
 A dominant seventh chord is stacked up of a major third, a minor third and another minor third.
 The *G7* in the progression is a dominant seventh chord for example.
 Using this principle, we can approach the *Dm* with an *A7* dominant seventh chord instead of an *Am7* as shown in the following example:
 
-{{< audio file="audio/6dom-2-5-1-cadence-sevenths.mp3" >}}
-{{< sheetmusic file="sheetmusic/6dom-2-5-1-cadence-sevenths.xml" mode="simple" >}}
+{{< audio src="audio/6dom-2-5-1-cadence-sevenths.mp3" >}}
+{{< sheetmusic src="sheetmusic/6dom-2-5-1-cadence-sevenths.xml" mode="simple" >}}
 
 Note that the *A7* is quite unusual because the *c♯* does not belong to the key of C major.
 If a chord contains a note that isn't part of the current key, it is called a **non-diatonic** chord.
@@ -128,7 +128,7 @@ Therefore, the *A7* is called a **secondary dominant** because it has a dominant
 Functional harmony can explain progressions quite well which stay in the same tonal center and exhibit only limited non-diatonic occurrences.
 However, in classical music and jazz, we often observe chord sequences that are very difficult to come up with by using this theory (key changes for example).
 
-# The Generative Framework
+# A Generative Framework
 
 Now, you're ready to learn about a very young theory invented by Martin Rohrmeier.
 Fortunately, I had the pleasure to meet him at a summer academy and I am excited to share what he taught at his lectures.
@@ -140,11 +140,11 @@ In functional harmony, we said that a dominant chord resolves to the chord a fif
 This is clearly one but not the only relation between two chords where a chord prepares another one.
 Other prepartory dependencies are for example:
 
-* V-I
-* ii-V
-* iii-VI
-* vii-I
-* IV-V
+* **V-I**
+* **ii-V**
+* **iii-VI**
+* **vii-I**
+* **IV-V**
 
 The reason why we put them into a single category is because they share a common **interpretation** which is a goal-directed motion and the build-up and release of musical tension.
 
@@ -154,10 +154,53 @@ The second core relation between chords extends or **prolongs** the span of a gi
 The simplest form of prolonging a chord is by repeating itself but it could also be prolonged by its relative.
 Here are some examples:
 
-* I-I
-* V-V
-* vi-vi
-* I-vi (prolonged by its relative)
+* **I-I**
+* **V-V**
+* **vi-vi**
+* **I-vi** (prolonged by its relative)
 
 Just like preparation relations, all prolongation rules have a common interpretation which is the temporal extension of a chord.
+
+## Recursive Derivation of Harmonic Sequences
+
+The core idea of Rohrmeier's framework is to use the rules of preparation and prolongation to create recursive derivations of harmonic sequences.
+In the following, we will learn how to derive the previous **Am-Dm-G-C** progression by recursively applying preparation and prolongation rules.
+An neat way to illustrate recursive derivations is to use trees.
+By doing so, a possible way to come up with the progression in question using Rohrmeier's Framework would look like this:
+
+{{< figure src="/img/tree-6-2-5-1-triads.png" title="Recursive derivation of the Am-Dm-G-C progression." >}}
+
+When reading the leaves from left to right, we get *Am-Dm-G-C*. So how does this work? 
+Every derivation starts by branching out of the tonic.
+An interesting observation by Rohrmeier is that staying in the same key is basically a prolongation of the **I**.
+Put differently, a progression that remains in a certain key is a temporal expansion of the tonic.
+By doing so, we can depict a prolongation of the **I** as follows:
+
+{{< figure src="/img/tree-1.png" title="The I-I prolongation rule applied on the root node of the tree." >}}
+
+You might already see that the G looks like a preparation of the C.
+Given that C is our **I**, we can apply the **V-I** preparation rule on the right branch:
+
+{{< figure src="/img/tree-2.png" title="The V-I preparation rule applied on the right branch." >}}
+
+Next, we can recursively apply the **ii-V** preparation rule on the **V**:
+
+{{< figure src="/img/tree-3.png" title="Applying the ii-V preparation rule." >}}
+
+According to the principle of prolongation as discussed before, we can substitute the left **I** by the **vi**:
+
+{{< figure src="/img/tree-4.png" title="Substitution of the I by the vi." >}}
+
+Finally, if we can derive the individual chords by passing the key as additional information to the nodes:
+
+{{< figure src="/img/tree-5.png" title="Passing key information." >}}
+
+Passing key information can be useful if a progression modulates (moves to another key) but more on that later.
+We may also leave out the key information if there doesn't occur any modulation as shown in the first tree.
+
+Let's sum up what we just did:
+We introduced a method of expressing harmonic relations in a hierarchical manner by recursively applying only two core operations (preparation and prolongation). 
+Then we derived the diatonic chord sequence *Am-Dm-G-C* using these rules in a tree-style fashion.
+
+## Expressing Harmonic Relations as Context Free Grammar Rules
 
