@@ -3,7 +3,7 @@ $(document).ready(function()
     $('.sheetmusic').each(function(idx, el) {
         var file = $(el).data('src')
         var mode = $(el).data('mode')
-        var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(el, {autoResize: false});
+        var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(el, {autoResize: true});
         if (mode === 'simple')
         {
             osmd.setOptions({
