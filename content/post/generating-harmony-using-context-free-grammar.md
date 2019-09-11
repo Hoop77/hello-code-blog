@@ -83,7 +83,7 @@ For example, any chord that builds on F has degree IV because its the fourth cho
 By convention, upper case roman numbers refer to major chords, while minor and diminished chords use lower case roman numbers.
 All diatonic triads over a C major scale with their respective degree are shown below:
 
-{{< sheetmusic src="/sheetmusic/c-major-scale-triads.xml" mode="simple" >}}
+{{< sheetmusic src="/sheetmusic/c-major-scale-triads.xml" mode="simple" min-width="500px" >}}
 
 Finally, you can go ahead and start making some music by playing any diatonic chords over a fixed major or minor scale.
 In fact, if you want to start a career as a pop musician, diatonic harmonies are sufficient to produce basic four-chord-songs played by famous interpreters such as Ed Sheeran.
