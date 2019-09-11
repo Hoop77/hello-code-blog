@@ -1,1 +1,6 @@
-<div class="sheetmusic" data-src="{{ .Site.BaseURL }}{{ .Get `src` }}" data-mode="{{ .Get `mode` }}"></div>
+<div style="overflow: auto;">
+    <div class="sheetmusic" 
+         data-src="{{ .Site.BaseURL }}{{ .Get `src` }}" 
+         data-mode="{{ .Get `mode` }}" 
+         style="min-width: {{ with .Get `min-width` }}{{ . }}{{ else }}auto{{ end }};"></div>
+</div>

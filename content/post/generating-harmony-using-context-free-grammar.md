@@ -62,7 +62,7 @@ whole step -> whole step -> half step -> whole step -> whole step -> whole step 
 In sheet music notation, the following represents the C major scale:
 
 {{< audio src="/audio/c-major-scale.mp3" >}}
-{{< sheetmusic src="/sheetmusic/c-major-scale.xml" mode="simple" >}}
+{{< sheetmusic src="/sheetmusic/c-major-scale.xml" mode="simple" min-width="700px" >}}
 
 The **minor scale** follows a different pattern:
 
@@ -71,7 +71,7 @@ whole step -> half step -> whole step -> whole step -> half step -> whole step -
 The C minor scale for example, looks like this:
 
 {{< audio src="/audio/c-minor-scale.mp3" >}}
-{{< sheetmusic src="/sheetmusic/c-minor-scale.xml" mode="simple" >}}
+{{< sheetmusic src="/sheetmusic/c-minor-scale.xml" mode="simple" min-width="700px" >}}
 
 Now, we can build so called **diatonic** chords from a scale.
 This means that we choose one of the notes in our scale as the root note and stack up thirds such that all resulting notes of our chord are also contained inside the scale.
