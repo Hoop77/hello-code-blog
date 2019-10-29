@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -17,12 +17,87 @@
   </url>
   
   <url>
+    <loc>https://hellocodeblog.com/tags/music-generation/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/music-theory/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/post/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/theoretical-computer-science/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/ai/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/autonomous-driving/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/autonomous-racing/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hellocodeblog.com/post/bachelor-thesis/</loc>
     <lastmod>2019-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://hellocodeblog.com/tags/deep-learning/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/robotics/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hellocodeblog.com/post/asionet/</loc>
+    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/asionet/</loc>
+    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/boost/</loc>
+    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/c&#43;&#43;/</loc>
+    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/network/</loc>
     <lastmod>2019-01-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -37,98 +112,7 @@
   </url>
   
   <url>
-    <loc>https://hellocodeblog.com/tags/ai/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/asionet/</loc>
-    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/autonomous-driving/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/autonomous-racing/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/boost/</loc>
-    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/c&#43;&#43;/</loc>
-    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://hellocodeblog.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/deep-learning/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/music-generation/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/music-theory/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/network/</loc>
-    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/post/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/robotics/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/</loc>
-    <lastmod>2015-05-24T18:52:04+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/theoretical-computer-science/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

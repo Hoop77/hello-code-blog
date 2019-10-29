@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on The computer science blog.</title>
@@ -7,26 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2019 by Philipp Badenhoop. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 12 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hellocodeblog.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Ai</title>
-      <link>https://hellocodeblog.com/tags/ai/</link>
-      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      <title>Music Generation</title>
+      <link>https://hellocodeblog.com/tags/music-generation/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://hellocodeblog.com/tags/ai/</guid>
+      <guid>https://hellocodeblog.com/tags/music-generation/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Asionet</title>
-      <link>https://hellocodeblog.com/tags/asionet/</link>
-      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      <title>Music Theory</title>
+      <link>https://hellocodeblog.com/tags/music-theory/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://hellocodeblog.com/tags/asionet/</guid>
+      <guid>https://hellocodeblog.com/tags/music-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theoretical Computer Science</title>
+      <link>https://hellocodeblog.com/tags/theoretical-computer-science/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/theoretical-computer-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AI</title>
+      <link>https://hellocodeblog.com/tags/ai/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/ai/</guid>
       <description></description>
     </item>
     
@@ -49,7 +67,34 @@
     </item>
     
     <item>
-      <title>Boost</title>
+      <title>Deep Learning</title>
+      <link>https://hellocodeblog.com/tags/deep-learning/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Robotics</title>
+      <link>https://hellocodeblog.com/tags/robotics/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/robotics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asionet</title>
+      <link>https://hellocodeblog.com/tags/asionet/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/tags/asionet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boost</title>
       <link>https://hellocodeblog.com/tags/boost/</link>
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
@@ -67,56 +112,11 @@
     </item>
     
     <item>
-      <title>Deep Learning</title>
-      <link>https://hellocodeblog.com/tags/deep-learning/</link>
-      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hellocodeblog.com/tags/deep-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Music Generation</title>
-      <link>https://hellocodeblog.com/tags/music-generation/</link>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hellocodeblog.com/tags/music-generation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Music Theory</title>
-      <link>https://hellocodeblog.com/tags/music-theory/</link>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hellocodeblog.com/tags/music-theory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Network</title>
+      <title>network</title>
       <link>https://hellocodeblog.com/tags/network/</link>
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hellocodeblog.com/tags/network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Robotics</title>
-      <link>https://hellocodeblog.com/tags/robotics/</link>
-      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hellocodeblog.com/tags/robotics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Theoretical Computer Science</title>
-      <link>https://hellocodeblog.com/tags/theoretical-computer-science/</link>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://hellocodeblog.com/tags/theoretical-computer-science/</guid>
       <description></description>
     </item>
     
