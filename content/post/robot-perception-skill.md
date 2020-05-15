@@ -62,7 +62,7 @@ plane coordinates
 world coordinates
 - **Control sub-system**: To determine the inverse kinematics solution of the previous sub-system
 
-{{< figure src="/img/robot-perception-skill/grasp-representation-table.png" title="Comparison between different grasp representations ." >}}
+{{< figure src="/img/robot-perception-skill/grasp-representation-table.png" title="Comparison between different grasp representations ." class="autosize" >}}
 
 Consider grasp detection vs learn robustness function.
 
@@ -77,9 +77,9 @@ Consider grasp detection vs learn robustness function.
 
 ### Architectures
 
-{{< figure src="/img/robot-perception-skill/resnet50-grasp-predictor-architecture.png" title="Uni-modal grasp predictor for CGD" >}}
+{{< figure src="/img/robot-perception-skill/resnet50-grasp-predictor-architecture.png" title="Uni-modal grasp predictor for CGD" class="autosize" >}}
 
-{{< figure src="/img/robot-perception-skill/architecture-comparison.png" title="Comparison between different transfer learning techniques in one-shot grasp detection on CGD" >}}
+{{< figure src="/img/robot-perception-skill/architecture-comparison.png" title="Comparison between different transfer learning techniques in one-shot grasp detection on CGD" class="autosize" >}}
 
 ### Metrics
 
@@ -97,6 +97,7 @@ Consider grasp detection vs learn robustness function.
     The Jacquard index between $$Grasp_{pred}$$ and $$Grasp_{true}$$ is given by:
 
     $$ J(Grasp_{pred}, Grasp_{true}) = \frac{| Grasp_{pred} \cap Grasp_{true}|}{| Grasp_{pred} \cup Grasp_{true} |} $$
+
 
 ### Future Work
 
@@ -171,11 +172,108 @@ It may be worthwhile to see how depth information could impact the results.
 
 [Paper](https://goldberg.berkeley.edu/pubs/icra2016-final-dex-net-v20.pdf)
 
+### Creating the database
 
+*Grasp Generation*
+
+Sample up to $$ K = 250 $$ parallel-jaw grasps for each object by doing the following:
+
+1. Sample random point $$ \textbf{c}_1 $$ on object surface (using signed disance function (SDF))
+2. Sample grasping axis $$ \textbf{v} $$ from the friction cone around $$ \textbf{c}_1 $$
+3. Find antipodal contact $$ \textbf{c}_2 $$ on the line $$ \textbf{c}_1 + t \textbf{v} $$
+4. Define the grasp point $$ \textbf{g} $$ the center point between $$ c_1 $$ and $$ c_2 $$
+5. Evaluate $$ P_F(\textbf{g}) $$ (Probability of force closure using soft finger contact model) using Monte-Carlo integration by sampling object pose, gripper pose and friction random variables $$ N = 500 $$ times and record the numbers of samples for which $$ \textbf{g}_k $$ achieved force closure
+
+{{< figure src="/img/robot-perception-skill/dex-net-1-0-contact-model.png" title="Contact model" class="autosize" >}}
+
+*Depthmap Gradient Features*
+
+To measure grasp similarity they create a depthmap for each grasp which represents the feature space.
+The depthmap is a local projection of the object surface around a contact point $$ c_i $$ (given by the grap $$ \textbf{g}_i$$). In order to make the map orientation-invariant they orient its axes along the eigenvectos of a weighted covariance matrix of the 3D surface points that generate the depthmap and refer to [this paper](https://s3.amazonaws.com/academia.edu.documents/42972440/SHOT_Unique_Signatures_of_Histograms_for20160223-22934-hz4swl.pdf?response-content-disposition=inline%3B%20filename%3DSHOT_Unique_signatures_of_histograms_for.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIATUSBJ6BACFHCSTAZ%2F20200507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200507T124036Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFYStAhdcnGaPaLOXahS%2BMNLKNg8xEU1baRjgO%2FORvkNAiBF7LbBLVmWMHoSoqOzafVykssdVdJruav6Nncyi2Rnyyq9Awi9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDI1MDMxODgxMTIwMCIMmiL5CIIhFaQg9LJ7KpEDXymuN%2BcWFrYBxkP3NLOwDISoWi2SGdguJ%2FNy4zvvDUfVTmpWYIe6B9kPrjzBkJ%2BMSSnEIc6n8YzBNrlnzEYwUi1ddHe1Bo7jeUBlBomGUvjIcOi5ofhHMqgg0y2ci2zFfnyCySjvToULz%2BJhWUQSFdp6Jo%2Frv%2BPRJ1jCxYiZvQZU9lJxF3%2FrZoUUQWHds%2BVqo6RRqRh8V0DULiLzUFUjXpvK67HNlWJsVgbgnqA3QuXk5Qp7F3XpBPCmDF3%2FUlPdL8E6Y6SDqB76sRuI9gwDovHs8d4J9D3LG4wwx1lbNV5dHCcRxMsv0u7of7Q5NTNjIH9Zuv%2FTcRFf32bOEvCM1W%2FKKcHiIRfScnqa2SMB48SYXt7v6aFsppazUJEXGcVDDtJazzAPalKCoj%2BwdHbevIrInEz4ZElkAoBRl2n2spPU3VFNopF%2Fj3YOpZc1qHbXkLe4ajfYv5iIzD8HpOBFOJUVhK8DNEMdTnUsaDILPNUMTQOVDEcTCBVO9VFr6czYKRj8BbCSSYKJuSbM4ukLLFswsPjP9QU67AH9%2FIYIfinaCJ9M23WP7btgERZ9EdLJdUWtLS4YuBscpOFOzaIIqrLbkjai0PYJtLgYJIEBoJPdAsfBUCvCdnVF3hCUuxFTkPTSDifsjeTZOTWCk1cOnymvjR5j07AfdkpjL%2BAmQtw3CmVHz9AHMlfflYW4vteb868h1I%2BrL7YFtte%2FxVLX4iqRtCqIEaEiZxqgDv7eDPS3esu83hGQTIGqpSXgVnXlRUenipB%2FKriDmoEXQ6f2CpQai3QSoVPuZ89EfmO2NyraWjmGRJ8KLXgzzZ6ScoUpAHtk1ahcC5xRW4rKLtmQdJxxyyIuzw%3D%3D&X-Amz-Signature=bf5da3159fa60b416cdb980c4317301b798482d5b31999ca3a01d8495788b394).
+Finally, they take the gradients $$ \nabla \textbf{d}_i = (\nabla_x \textbf{d}, \nabla_y \textbf{d}_i ) $$ and store them in the dataset.
+
+{{< figure src="/img/robot-perception-skill/dex-net-1-0-local-surface-depthmaps.png" title="Local surface depthmaps" class="autosize" >}}
+
+*Multi-View Convolutional Neural Network*
+
+**Goal**: Index prior 3D object and grasp data by embedding each object in a vector space where distance represents object similarity.
+
+**Method**: Render objects in multiple virtual camera views and use the resulting images to train a CNN to predict the corresponding object class.
+When forwarding an image to the CNN, they maxpool the output of the last fully connected layer before the prediction.
+Then, they use Principle Component Analysis to reduce the max-pooled output to a 100 dimensional vecture vector $$ \psi(\mathcal{O}) $$.
+Now, they measure the dissimilarity between two objects $$ \mathcal{O}_i $$ and $$ \mathcal{O}_j $$ by the euclidean distance $$ \| \psi(\mathcal{O}_i) - \psi(\mathcal{O}_j) \| $$.
+
+{{< figure src="/img/robot-perception-skill/dex-net-1-0-mvcnn.png" title="Mutli-View Convolutional Neural Network" class="autosize" >}}
+
+### Predicting grasp for new objects
+
+In order to find a suitable grasp pose for a new object, the Dex-Net 1.0 algorithm starts by using the same algorithm as described above to sample a set of $$ K $$ random grasp poses $$ \Gamma $$.
+Now, the idea is to score these samples based on the chosen quality metric (in this case the probability of force closure $$ P_F $$) and information obtained from the grasp database.
+So the goal is to combine the knowledge from the two sources.
+This is achieved by rephrasing the objective of finding the best grasp as a reinforcement learning problem, namely a [Multi-Armed Bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit) problem.
+
+Each generated grasp $$ \textbf{g}_j $$ is associated with a Bernoulli random variable whoose parameter $$ \theta_j $$ represents the probability that the grasp succeeds.
+To understand the analogy to the typical example of the Multi-Arm Bandit: the probability of winning at slot machine $$ j $$ would now be understood as the probability of making a successful grasp using $$ \textbf{g}_j $$.
+Since the parameter of winning at a particular slot machine is not known, the agent has to make a series of trials to estimate the machines' expected reward.
+Coming back to grasp predictions, the confusing part is that we somehow already have a probabilistic measure of success, namely the probability of force closure.
+However, the actual goal is to incorporate prior grasp knowledge into the score.
+What is a good to tool to combine different sources of knowledge? *Bayesian Inference*.
+
+Therefore, we model each individual parameter $$ \theta_j $$ as a Beta distribution $$ \theta_j \sim Beta(\alpha_j, \beta_j) $$.
+The $$ \alpha $$ parameter in a Beta distribution usually stands for the number of observed successful outcomes while $$ \beta $$ represents the number of failed observed outcomes of a random process.
+Given these two numbers, the Beta distribution tells us how likely the **true** success rate $$ \theta $$ would be.
+For example, if $$ \alpha = 8000 $$ and $$ \beta = 2000 $$ (8000 successful outcomes and 2000 failed outcomes), then $$ Beta(0.8, \alpha, \beta) $$ gives a high probability, meaning it is very likely that the true expected success rate would be 80%.
+Likewise, $$ Beta(0.1, \alpha, \beta) $$ yields a very small probability value since it is extremely unlikely that the true expected success rate would be 10%, given the observed data.
+
+In this case, the parameters $$ \alpha_j $$ and $$ \beta_j $$ quantize how many successful/failed grasps there are that are similar to the grasp $$ \textbf{g}_j $$.
+The similarity between two grasps is measured using the distance of grasp poses, the depthmap gradients and the object similarity obtained from the Multi-View CNN.
+In the course of performing Bayesian inference we want to iteratively update the Beta distributions for each individual grasp which in the end means to update $$ \alpha_j $$ and $$ \beta_j $$ in order to estimate the grasp success rate for each $$ \textbf{g}_j $$.
+To do so, we need to define a prior distribution which means to find reasonable initial values $$ \alpha_{j, 0} $$ and $$ \beta_{j, 0} $$:
+
+$$ \alpha_{j, 0} = \alpha_0 + \sum_{\textbf{g}_l \in \mathcal{D}} k(\textbf{g}_j, \textbf{g}_l) Z_l $$
+
+$$ \beta_{j, 0} = \beta_0 + \sum_{\textbf{g}_l \in \mathcal{D}} k(\textbf{g}_j, \textbf{g}_l) (N_l - Z_l) $$
+
+where $$ \mathcal{D} $$ is our grasp database and $$ \alpha_0 $$ and $$ \beta_0 $$ are just some constant parameters and can safely ignored at this point. The kernel $$ k $$ gives the similarity between two grasps and returns a values between 0 and 1 where higher values represent greater similiarity.
+$$ Z_l $$ is the number of successful grasps that were observed for grasp $$ \textbf{g}_l $$ while $$ N_l $$ is the number of grasp trials performed with $$ \textbf{g}_l $$.
+These numbers stem from our database and were determined offline.
+Therefore, $$ \alpha_{j, 0} $$ and $$ \beta_{j, 0} $$ represent the number of successful and failed grasp trials weighted by grasp similarity.
+
+Note that until now we made sense of our database as a prior for estimating the distribution of $$ \theta_j $$.
+But of course, we also want to directly evaluate the quality metric for the newly seen grasps.
+So why not just iterate through every $$ \textbf{g}_j $$ and compute its corresponding $$ P_F $$ value?
+Because by doing so we could barely make use of our nice probabilistic methodology.
+Instead, we want to it the Bayesian way and get a *posterior distribution* for the success rates $$ \theta_j $$.
+
+A nice property of choosing a Beta distribution as the prior is that the posterior distribution is again a Beta distribution, characterized by some updated parameters $$ \alpha $$ and $$ \beta $$.
+But how are these new parameters determined?
+What the authors do is to choose a single grasp $$ \textbf{g}_j $$ from the $$ K $$ grasp samples using a method called Thompson sampling (which we will get to in a moment).
+Then, they use the quality metric/simulation to figure out whether $$ \textbf{g}_j $$ would be a successful or a failed grasp and use this outcome to compute the updated posterior distribution parameters for every grasp $$ \textbf{g}_l $$:
+
+$$ \alpha_{l,\ t} = \alpha_{l,\ t - 1} + k(\textbf{g}_j, \textbf{g}_l) S_j $$
+
+$$ \beta_{l,\ t} = \beta_{l,\ t - 1} + k(\textbf{g}_j, \textbf{g}_l) (1 - S_j) $$
+
+where $$ S_j \in \{ 0, 1 \} $$ represent the outcome.
+Note that they computed the quality metric for only one particular grasp but transferred the gained knowledge across all other samples.
+Furthermore, this sample $$ \textbf{g}_j $$ was retreived using Thompson sampling.
+A grasp success rate $$ \hat{\theta_l} \sim p(\theta_l \ | \ \alpha_{l,\ t},\ \beta_{l,\ t}) $$ is sampled for each grasp $$ \textbf{g}_l \in \Gamma $$.
+Then, we simply pick the grasp $$ \textbf{g}_j $$ for which the sampled success rate is highest. 
+That's it. 
+It is simple but an effective way of handling the exploration vs exploitation trade-off in a Multi-Armed Bandit problem.
+This sampling and posterior update is repeated $$ T = 200 $$ times.
+
+This pretty much covers the Dex-Net 1.0 algorithm leaving out a couple of details (for example on how the kernel $$ k $$ is computed), however, it hopefully unveils the core ideas.
+
+{{< figure src="/img/robot-perception-skill/dex-net-1-0-algorithm.png" title="The Dex-Net 1.0 Algorithm for finding suitable grasp poses on a new object" class="" >}}
 
 ## Dex-Net 2.0
 
 [Paper](https://arxiv.org/pdf/1703.09312.pdf)
+
+### Method
+
+dex-net-1-0-contact-model.png
 
 ## Dex-Net 2.1
 
