@@ -265,11 +265,15 @@ This sampling and posterior update is repeated $$ T = 200 $$ times.
 
 This pretty much covers the Dex-Net 1.0 algorithm leaving out a couple of details (for example on how the kernel $$ k $$ is computed), however, it hopefully unveils the core ideas.
 
-{{< figure src="/img/robot-perception-skill/dex-net-1-0-algorithm.png" title="The Dex-Net 1.0 Algorithm for finding suitable grasp poses on a new object" class="" >}}
+{{< figure src="/img/robot-perception-skill/dex-net-1-0-algorithm.png" title="The Dex-Net 1.0 Algorithm for finding suitable grasp poses on a new object" >}}
 
 ## Dex-Net 2.0
 
 [Paper](https://arxiv.org/pdf/1703.09312.pdf)
+
+{{< figure src="/img/robot-perception-skill/dex-net-2-0-dataset-generation-pipeline.png" title="Dex-Net 2.0 pipeline for training dataset generation" class="autosize" >}}
+
+{{< figure src="/img/robot-perception-skill/dex-net-2-0-gqcnn.png" title="Architecture of the GQ-CNN" class="autosize" >}}
 
 ### Method
 
@@ -353,6 +357,13 @@ predicted bounding box and perform the grasp prediction on that crop.
 - Predicting probability/robustness instead of point/rectangle. Some sort of segmentation?
 
 # Development 
+
+## Method
+
+- What kind of gripper/hand?
+- How to represent grasps?
+- How to generate data? simulation vs hand-labeled data
+- How to get 3D models?
 
 ## ToDo
 
