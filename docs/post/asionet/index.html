@@ -97,51 +97,34 @@
     
     <article>
         <div class="container">
-              
-
-<h1 id="introduction">Introduction</h1>
-
+              <h1 id="introduction">Introduction</h1>
 <p>In case you&rsquo;ve ever done some network programming in C++, you probably stumbled upon the quasi-standard boost::asio library.
-It uses asynchronous programming making it scalable but on the other side, it takes quite some time to learn how to use it correctly.<br />
+It uses asynchronous programming making it scalable but on the other side, it takes quite some time to learn how to use it correctly.<br>
 <strong>asionet</strong> is built on top of boost::asio which makes it 100% compatible with it but easier to use at the same time.
 For example, managing timeouts and sending and receiving serialized messages is done with only a few lines of code.</p>
-
 <p><a href="https://github.com/Badenhoop/asionet">Here</a> is the link to the github repository.</p>
-
 <h2 id="prerequisites">Prerequisites</h2>
-
 <p>In order to use the library, you have to compile with the C++14 standard and make sure to include Boost 1.66 and your system&rsquo;s thread library in your project.
 In your CMakeLists.txt, insert:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>set(<span style="color:#48b685">CMAKE_CXX_STANDARD</span> <span style="color:#48b685">14</span>)<span style="color:#ef6155">
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ef6155"></span>find_package(<span style="color:#48b685">Boost</span> <span style="color:#48b685">REQUIRED</span> <span style="color:#48b685">COMPONENTS</span> <span style="color:#48b685">system</span> <span style="color:#48b685">regex</span>)<span style="color:#ef6155">
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#ef6155"></span>find_package(<span style="color:#48b685">Threads</span>)<span style="color:#ef6155">
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#ef6155"></span>link_libraries(<span style="color:#5bc4bf">${</span><span style="color:#ef6155">Boost_LIBRARIES</span><span style="color:#5bc4bf">}</span> <span style="color:#5bc4bf">${</span><span style="color:#ef6155">CMAKE_THREAD_LIBS_INIT</span><span style="color:#5bc4bf">}</span>)</code></pre></div>
-
 <h2 id="installation">Installation</h2>
-
 <p>Get the repository, build and install it.</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>$ git clone https://github.com/Badenhoop/asionet
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>$ cd asionet
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>$ mkdir build
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>$ cd build
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>$ cmake ..
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>$ sudo make install</code></pre></div>
-
 <h2 id="usage">Usage</h2>
-
 <p>Just insert the following into your CMakeLists.txt file:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmake" data-lang="cmake"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>find_package(<span style="color:#48b685">asionet</span>)<span style="color:#ef6155">
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ef6155"></span>link_libraries(<span style="color:#48b685">asionet</span>)</code></pre></div>
-
 <h1 id="tutorial">Tutorial</h1>
-
 <h2 id="receiving-string-messages-over-udp">Receiving string messages over UDP</h2>
-
 <p>The code below listens to port 4242 for receiving a UDP datagram with timeout 1 second.</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#776e71">// Just a typedef of boost::asio::io_context (aka io_service).
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#776e71"></span>asionet<span style="color:#5bc4bf">::</span>Context context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#776e71">// A thread which runs the context object and dispatches asynchronous handlers.
@@ -159,11 +142,8 @@ In your CMakeLists.txt, insert:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>              <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;port: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> senderEndpoint.port() <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>; 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>});
 </code></pre></div>
-
 <h2 id="sending-string-messages-over-udp">Sending string messages over UDP</h2>
-
 <p>The following code sends a UDP message containing the string &ldquo;Hello World!&rdquo; to IP 127.0.0.1 port 4242 with operation timeout 10ms.</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>DatagramSender<span style="color:#5bc4bf">&lt;</span>std<span style="color:#5bc4bf">::</span>string<span style="color:#5bc4bf">&gt;</span> sender{context};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>sender.asyncSend(<span style="color:#48b685">&#34;Hello World!&#34;</span>, <span style="color:#48b685">&#34;127.0.0.1&#34;</span>, <span style="color:#f99b15">4242</span>, <span style="color:#f99b15">10</span>ms, [](<span style="color:#815ba4">const</span> asionet<span style="color:#5bc4bf">::</span>error<span style="color:#5bc4bf">::</span>Error <span style="color:#5bc4bf">&amp;</span> error)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>{
@@ -171,12 +151,9 @@ In your CMakeLists.txt, insert:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>        <span style="color:#776e71">// handle error ...
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#776e71"></span>});
 </code></pre></div>
-
 <h2 id="defining-custom-messages">Defining custom messages</h2>
-
 <p>Wouldn&rsquo;t it be nice to just send your own data types as messages over the network?
 Let&rsquo;s assume we want to program the client for an online game so we have to send updates about our player&rsquo;s state.</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">struct</span> <span style="color:#fec418">PlayerState</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    std<span style="color:#5bc4bf">::</span>string name;
@@ -185,17 +162,13 @@ Let&rsquo;s assume we want to program the client for an online game so we have t
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    <span style="color:#fec418">float</span> health;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>};
 </code></pre></div>
-
 <p>Now we could replace the template parameter from std::string with PlayerState to tell DatagramSender to send PlayerState objects:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>DatagramSender<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span> sender{context};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>PlayerState playerState{<span style="color:#48b685">&#34;WhatAPlayer&#34;</span>, <span style="color:#f99b15">0.15f</span>, <span style="color:#f99b15">1.7f</span>, <span style="color:#f99b15">0.1f</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>sender.asyncSend(playerState, <span style="color:#48b685">&#34;127.0.0.1&#34;</span>, <span style="color:#f99b15">4242</span>, <span style="color:#f99b15">10</span>ms);
 </code></pre></div>
-
 <p>The only thing for that to work is to tell asionet how to serialize a PlayerState object into a string of bytes which is simply represented as a string.
 Therefore, we could just use the nlohmann json library which is an amazing piece of work by the way.</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">namespace</span> asionet { <span style="color:#815ba4">namespace</span> message {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#815ba4">template</span><span style="color:#5bc4bf">&lt;&gt;</span>
@@ -213,13 +186,10 @@ Therefore, we could just use the nlohmann json library which is an amazing piece
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>}}
 </code></pre></div>
-
-<p>Here we have to create a template specialization of the asionet::message::Encoder<PlayerState> object.
+<p>Here we have to create a template specialization of the asionet::message::Encoder<!-- raw HTML omitted --> object.
 The call operator takes a PlayerState reference as input and expects the data reference to be assigned to the byte string that should be transmitted over the network.</p>
-
 <p>Since we can now send PlayerState objects, we cover the server side next.
-Therefore, we have to specialize the asionet::message::Decoder<PlayerState> struct to retrieve the PlayerState object from a buffer object.</p>
-
+Therefore, we have to specialize the asionet::message::Decoder<!-- raw HTML omitted --> struct to retrieve the PlayerState object from a buffer object.</p>
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">namespace</span> asionet { <span style="color:#815ba4">namespace</span> message {
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#815ba4">template</span><span style="color:#5bc4bf">&lt;&gt;</span>
@@ -241,23 +211,18 @@ Therefore, we have to specialize the asionet::message::Decoder<PlayerState> stru
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>}}
 </code></pre></div>
-
 <p>Note that we have to define the call operator which takes a template argument and the message to be decoded.
 So what exactly is a ConstBuffer?
 Since it&rsquo;s a template argument, a ConstBuffer is not an actual class but instead represents an abstract buffer interface.
 This interface provides four methods:</p>
-
 <ul>
 <li>a <strong>size()</strong> function, returning the number of bytes in the buffer</li>
 <li>a <strong>[]-operator</strong> returning a data byte as a char by index</li>
 <li>a <strong>begin()</strong> function to get an iterator to the beginning of the buffer</li>
 <li>a <strong>end()</strong> function to get an iterator to the end of the buffer</li>
 </ul>
-
 <p>By using this abstraction, asionet may internally use the most suitable buffer representation for a specific operation.</p>
-
 <p>Finally, we can set up the UDP receiver as follows:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>DatagramReceiver<span style="color:#5bc4bf">&lt;</span>PlayerState<span style="color:#5bc4bf">&gt;</span> receiver{context, <span style="color:#f99b15">4242</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>receiver.asyncReceive(<span style="color:#f99b15">1</span>s, [](<span style="color:#815ba4">const</span> <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> error, 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>                             <span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;</span> playerState,
@@ -267,17 +232,13 @@ This interface provides four methods:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>    std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;player: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> playerState.name <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>; 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>});
 </code></pre></div>
-
 <h2 id="services">Services</h2>
-
 <p>A common network pattern consists of sending a request to a server which reacts by sending a response back to the client.
 This happens in http for instance.
 Using asionet, it&rsquo;s easy to implement this pattern.</p>
-
 <p>Assume that we want to create a server which delivers chat messages based on a query.
 The query consists of two user-IDs defining the chat and the number of most recent messages that should be delivered.
 Let&rsquo;s create some classes to model this scenario.</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">struct</span> <span style="color:#fec418">Query</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#fec418">unsigned</span> <span style="color:#fec418">long</span> user1;
@@ -296,21 +257,16 @@ Let&rsquo;s create some classes to model this scenario.</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>    std<span style="color:#5bc4bf">::</span>vector<span style="color:#5bc4bf">&lt;</span>ChatMessage<span style="color:#5bc4bf">&gt;</span> messages;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>};
 </code></pre></div>
-
 <p>Next, we have to specialize the Encoder/Decoder classes for the Query and Response types.
 Since this works exactly as shown above using the PlayerState class, we just jump over that.</p>
-
 <p>Now, we have to create a service description:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">struct</span> <span style="color:#fec418">ChatService</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    <span style="color:#815ba4">using</span> RequestMessage <span style="color:#5bc4bf">=</span> Query;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>    <span style="color:#815ba4">using</span> ResponseMessage <span style="color:#5bc4bf">=</span> Response;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>}
 </code></pre></div>
-
 <p>To create a server which receives incoming requests:</p>
-
 <p><div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>ServiceServer<span style="color:#5bc4bf">&lt;</span>ChatService<span style="color:#5bc4bf">&gt;</span> server{context, <span style="color:#f99b15">4242</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>server.advertiseService([](<span style="color:#815ba4">const</span> boost<span style="color:#5bc4bf">::</span>asio<span style="color:#5bc4bf">::</span>ip<span style="color:#5bc4bf">::</span>tcp<span style="color:#5bc4bf">::</span>endpoint <span style="color:#5bc4bf">&amp;</span> senderEndpoint, 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>                           Query <span style="color:#5bc4bf">&amp;</span> query,
@@ -321,9 +277,7 @@ Since this works exactly as shown above using the PlayerState class, we just jum
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>});
 </code></pre></div>
 That&rsquo;s it. Simple, right?</p>
-
 <p>Finally, calling the server on the client side looks like this:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>ServiceClient<span style="color:#5bc4bf">&lt;</span>ChatService<span style="color:#5bc4bf">&gt;</span> client{context};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>client.asyncCall(
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    Query{<span style="color:#f99b15">10</span>, <span style="color:#f99b15">12</span>, <span style="color:#f99b15">50</span>}, <span style="color:#48b685">&#34;mychatserver.com&#34;</span>, <span style="color:#f99b15">4242</span>, <span style="color:#f99b15">10</span>s, 
@@ -334,19 +288,14 @@ That&rsquo;s it. Simple, right?</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>                std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> message.author <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34; wrote: &#34;</span> <span style="color:#5bc4bf">&lt;&lt;</span> message.content <span style="color:#5bc4bf">&lt;&lt;</span> <span style="color:#48b685">&#34;</span><span style="color:#f99b15">\n</span><span style="color:#48b685">&#34;</span>;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span>    });
 </code></pre></div>
-
 <h2 id="ensuring-thread-safety">Ensuring thread-safety</h2>
-
 <p>An important advantage of asynchronous programming is that it is easier to write thread-safe code.
 Imagine all asynchronous handlers are invoked from a single thread.
 Then there&rsquo;s no need for explicit locking of shared state between the handlers since everything is running in sequence (not concurrently).</p>
-
 <p>However, running only a single thread may not be an option as we want to benefit from being able to run things in parallel.
 Therefore, we can wrap handlers inside a <strong>WorkSerializer</strong> object which guarantees that handlers that are wrapped inside the WorkSerializer are executed in sequence.
 In fact WorkSerializer just inherits from boost::asio::io_context::strand and can be used in exactly the same manner.</p>
-
 <p>Let&rsquo;s consider this example:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>asionet<span style="color:#5bc4bf">::</span>Context context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#776e71">// Create 4 threads that are concurrently dispatching handlers from the context object.
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#776e71"></span>asionet<span style="color:#5bc4bf">::</span>WorkerPool workers{context, <span style="color:#f99b15">4</span>};
@@ -359,10 +308,8 @@ In fact WorkSerializer just inherits from boost::asio::io_context::strand and ca
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>sleep(<span style="color:#776e71">/* long enough */</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> counter;
 </code></pre></div>
-
 <p>If you are familiar with concurrency problems, you are not surprised that the outcome is very likely NOT 1000000.
 We can either fix this by making counter atomic or we could employ a WorkSerializer:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>asionet<span style="color:#5bc4bf">::</span>Context context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#776e71">// Create 4 threads that are concurrently dispatching handlers from the context object.
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#776e71"></span>asionet<span style="color:#5bc4bf">::</span>WorkerPool workers{context, <span style="color:#f99b15">4</span>};
@@ -379,23 +326,16 @@ We can either fix this by making counter atomic or we could employ a WorkSeriali
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>sleep(<span style="color:#776e71">/* long enough */</span>);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>std<span style="color:#5bc4bf">::</span>cout <span style="color:#5bc4bf">&lt;&lt;</span> counter;
 </code></pre></div>
-
 <p>We just use the WorkSerializer&rsquo;s call operator by taking the handler as input and the output should be 1000000 now.
 So whenever you want your handlers to not run concurrently, just wrap them inside the SAME WorkSerializer object.</p>
-
 <p>&hellip; and of course, in this particular example, there&rsquo;s nothing else that is executed so we could have used only a single worker instead to make it thread-safe.
 But imagine you would also have other asynchronous operations running next to those which increment the counter.
 Then, all other handlers would still be running concurrently if they are not wrapped inside a WorkSerializer.</p>
-
 <p>And finally, if you have two WorkSerializer objects s1 and s2, they don&rsquo;t care about each other meaning that handlers wrapped inside s1 are running concurrently to handlers wrapped inside s2.</p>
-
 <h2 id="lifetime-management">Lifetime management</h2>
-
 <p>We silently ignored the dangerous dangling references problem in the code snippets above which can be easily overlooked.
 The problem with running objects in handlers is that by the time a handler is executed, its containing objects could be already destructed.</p>
-
 <p>This is made clear by the following example:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>Context context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>asionet<span style="color:#5bc4bf">::</span>Worker worker{context};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
@@ -406,14 +346,11 @@ The problem with running objects in handlers is that by the time a handler is ex
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#776e71">// Do something else...
 </span></code></pre></div>
-
 <p>Here, &lsquo;text&rsquo; could be already destructed by the time the posted handler executes since this happens on a different thread.
 When accessing an invalid reference, the behavior is undefined.
 Those types of bugs can be extremely hard to debug.
 Therefore, we need some coding practice to systematically avoid this issue.</p>
-
 <p>A good solution to the example above is to use a shared_ptr and pass that inside the lambda capture of the handler.</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>Context context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>asionet<span style="color:#5bc4bf">::</span>Worker worker{context};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
@@ -424,10 +361,8 @@ Therefore, we need some coding practice to systematically avoid this issue.</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#776e71">// Do something else...
 </span></code></pre></div>
-
 <p>However, it can be tedious and of bad performance to make every object a shared_ptr.
 Therefore, we could also use the shared_from_this pattern:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#815ba4">class</span> <span style="color:#fec418">ComplexObject</span> <span style="color:#5bc4bf">:</span> <span style="color:#815ba4">public</span> std<span style="color:#5bc4bf">::</span>enable_shared_from_this<span style="color:#5bc4bf">&lt;</span>ComplexObject<span style="color:#5bc4bf">&gt;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>{
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#815ba4">public</span><span style="color:#5bc4bf">:</span>
@@ -448,20 +383,14 @@ Therefore, we could also use the shared_from_this pattern:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>    <span style="color:#776e71">// more state ...
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#776e71"></span>};
 </code></pre></div>
-
 <p>When using ComplexObject, you have to instantiate it in a shared_ptr:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#815ba4">auto</span> complexObject <span style="color:#5bc4bf">=</span> std<span style="color:#5bc4bf">::</span>make_shared<span style="color:#5bc4bf">&lt;</span>ComplexObject<span style="color:#5bc4bf">&gt;</span>(context);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>complexObject<span style="color:#5bc4bf">-&gt;</span>run();
 </code></pre></div>
-
 <p>Even if complexObject leaves its scope, any handlers invoked inside run() which capture the self pointer will not suffer from the dangling references problem.</p>
-
 <h2 id="waiting">Waiting</h2>
-
 <p>Sometimes you want to wait for one or more events to complete.
 Consider the following:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>Context context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>asionet<span style="color:#5bc4bf">::</span>WorkerPool workers{context, <span style="color:#f99b15">4</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
@@ -471,10 +400,8 @@ Consider the following:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#776e71">// Objective: wait until all operation 1, 2 and 3 are done.
 </span></code></pre></div>
-
 <p>Of course, we could mess around with atomic booleans or mutexes again but if your program gets more complex, we want something more elegant.
 asionet provides the <strong>Waiter</strong> and <strong>Waitable</strong> classes for this purpose:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>asionet<span style="color:#5bc4bf">::</span>Context context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>asionet<span style="color:#5bc4bf">::</span>WorkerPool workers{context, <span style="color:#f99b15">4</span>};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
@@ -487,24 +414,18 @@ asionet provides the <strong>Waiter</strong> and <strong>Waitable</strong> class
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>w.await(w1 <span style="color:#5bc4bf">&amp;&amp;</span> w2 <span style="color:#5bc4bf">&amp;&amp;</span> w3);
 </code></pre></div>
-
 <p>Just like the WorkSerializer object, a Waitable wraps its corresponding handler and notifies its Waiter object when the handler finishes execution.
 The Waiter object can then await an expression of Waitable objects.
 In this case, we want to wait until all Waitable objects are ready which is represented by the chain of &amp;&amp;-operators.
 Instead, we could also wait until any handler finishes execution which would be done with:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>w.await(w1 <span style="color:#5bc4bf">||</span> w2 <span style="color:#5bc4bf">||</span> w3);
 </code></pre></div>
-
 <p>Or we could say that at least two of them should be ready:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>w.await((w1 <span style="color:#5bc4bf">&amp;&amp;</span> w2) <span style="color:#5bc4bf">||</span> (w1 <span style="color:#5bc4bf">&amp;&amp;</span> w3) <span style="color:#5bc4bf">||</span> (w2 <span style="color:#5bc4bf">&amp;&amp;</span> w3));
 </code></pre></div>
-
 <p>You can also set the state of a Waitable object directly:
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>w1.setReady();
 </code></pre></div></p>
-
 <p>If you want to reuse the waitable objects, you have to set their state to waiting again:
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>w.await(w1 <span style="color:#5bc4bf">&amp;&amp;</span> w2 <span style="color:#5bc4bf">&amp;&amp;</span> w3);
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#776e71">// Reset states.
@@ -512,12 +433,9 @@ Instead, we could also wait until any handler finishes execution which would be 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>w2.setWaiting();
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>w3.setWaiting();
 </code></pre></div></p>
-
-<h2 id="compatibility-with-boost-asio">Compatibility with boost::asio</h2>
-
+<h2 id="compatibility-with-boostasio">Compatibility with boost::asio</h2>
 <p>As already mentioned, asionet was designed to be seamlessly usable with existing boost::asio code.
 For example, we can send and receive messages with boost::asio::ip::tcp::socket objects directly without having to use the ServiceServer or ServiceClient object:</p>
-
 <div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>asionet<span style="color:#5bc4bf">::</span>Context <span style="color:#5bc4bf">&amp;</span> context;
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>boost<span style="color:#5bc4bf">::</span>asio<span style="color:#5bc4bf">::</span>ip<span style="color:#5bc4bf">::</span>tcp<span style="color:#5bc4bf">::</span>socket socket{context};
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>boost<span style="color:#5bc4bf">::</span>asio<span style="color:#5bc4bf">::</span>ip<span style="color:#5bc4bf">::</span>tcp<span style="color:#5bc4bf">::</span>endpoint endpoint{
@@ -526,8 +444,6 @@ For example, we can send and receive messages with boost::asio::ip::tcp::socket 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#776e71">// Send the message over the socket.
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#776e71"></span>asionet<span style="color:#5bc4bf">::</span>message<span style="color:#5bc4bf">::</span>asyncSend(socket, PlayerState{<span style="color:#48b685">&#34;name&#34;</span>, <span style="color:#f99b15">1.f</span>, <span style="color:#f99b15">0.f</span>, <span style="color:#f99b15">0.5f</span>}, <span style="color:#f99b15">1</span>s, [](<span style="color:#815ba4">auto</span> <span style="color:#5bc4bf">&amp;&amp;</span> ...){});
 </code></pre></div>
-
-              
 
         </div>
     </article>

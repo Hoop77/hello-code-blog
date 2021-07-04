@@ -12,6 +12,41 @@
   </url>
   
   <url>
+    <loc>https://hellocodeblog.com/post/dual-arm-grasping/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/grasping/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/post/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/robotics/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/ros/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/simulation/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/tags/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hellocodeblog.com/post/generating-harmony-using-context-free-grammar/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
@@ -23,21 +58,6 @@
   
   <url>
     <loc>https://hellocodeblog.com/tags/music-theory/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/post/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/tags/</loc>
-    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hellocodeblog.com/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -72,11 +92,6 @@
   </url>
   
   <url>
-    <loc>https://hellocodeblog.com/tags/robotics/</loc>
-    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hellocodeblog.com/post/asionet/</loc>
     <lastmod>2019-01-08T00:00:00+00:00</lastmod>
   </url>
@@ -103,6 +118,11 @@
   
   <url>
     <loc>https://hellocodeblog.com/cookie-preferences/</loc>
+    <lastmod>2018-12-30T13:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hellocodeblog.com/</loc>
     <lastmod>2018-12-30T13:00:00+02:00</lastmod>
   </url>
   

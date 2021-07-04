@@ -283,6 +283,10 @@ dex-net-1-0-contact-model.png
 
 [Paper](http://proceedings.mlr.press/v78/mahler17a/mahler17a.pdf)
 
+## Dex-Net 4.0
+
+[Paper](https://robotics.sciencemag.org/content/robotics/4/26/eaau4984.full.pdf)
+
 ## Autonomous Dual-Arm Manipulation of Familiar Objects
 
 [Paper](https://arxiv.org/pdf/1811.08716.pdf)

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2019 by Philipp Badenhoop. All Rights Reserved.</copyright>
-    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Dec 2018 13:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://hellocodeblog.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -29,6 +29,15 @@ Philipp Badenhoop</description>
       
       <guid>https://hellocodeblog.com/contact/</guid>
       <description>Feel free to send me a message by filling out the form below.</description>
+    </item>
+    
+    <item>
+      <title>Dual-Arm Grasp Detection of Chairs</title>
+      <link>https://hellocodeblog.com/post/dual-arm-grasping/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hellocodeblog.com/post/dual-arm-grasping/</guid>
+      <description>During my master studies at Technical University of Munich, I attended a practical course where I made two robots grasping a chair in a ROS simulation. Sounds easy, but was a TON of work! I came to the conclusion that even though Gazebo is the first choice simulator in ROS, it is absolutely not ready for doing even the most basic things such as grasping! Although it was quite painful at some points, I really learned A LOT.</description>
     </item>
     
     <item>
