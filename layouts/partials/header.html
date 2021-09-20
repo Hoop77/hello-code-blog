@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ end }}">
+    <meta name="title" property="og:title" content="{{ if .Title }}{{ .Title }}{{ end }}">
+    <meta name="description" property="og:description" content="{{ if .Description }}{{ .Description }}{{ end }}">
+    <meta name="image" property="og:image" content="{{ .Site.BaseURL }}/img/og.jpg">
     <meta name="author" content="{{ if .Params.authors }}{{ .Params.authors }}{{ else if .Site.Params.Author }}{{.Site.Params.Author}}{{ end }}">
     <meta name="keywords" content="{{ if .Keywords }}{{ delimit .Keywords ", " }}{{ end }}">
 
 
-    <title>{{ .Title }} -- {{ .Site.Title }}</title>
+    <title>{{ .Site.Title }}</title>
 
     {{ if .RSSLink }}
     <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />

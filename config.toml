@@ -1,6 +1,7 @@
 baseurl = "https://hellocodeblog.com"
-title = "The computer science blog."
+title = "hellocodeblog"
 canonifyurls = true
+keywords = ["Computer science", "Blog", "AI", "Robotics", "Informatics", "Software Development"]
 paginate = 10
 theme = "startbootstrap-clean-blog"
 languageCode = "en-us"

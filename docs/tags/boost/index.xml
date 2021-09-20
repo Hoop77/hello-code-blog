@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>boost on The computer science blog.</title>
+    <title>boost on hellocodeblog</title>
     <link>https://hellocodeblog.com/tags/boost/</link>
-    <description>Recent content in boost on The computer science blog.</description>
+    <description>Recent content in boost on hellocodeblog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2019 by Philipp Badenhoop. All Rights Reserved.</copyright>

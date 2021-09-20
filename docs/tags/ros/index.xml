@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ROS on The computer science blog.</title>
+    <title>ROS on hellocodeblog</title>
     <link>https://hellocodeblog.com/tags/ros/</link>
-    <description>Recent content in ROS on The computer science blog.</description>
+    <description>Recent content in ROS on hellocodeblog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2019 by Philipp Badenhoop. All Rights Reserved.</copyright>
